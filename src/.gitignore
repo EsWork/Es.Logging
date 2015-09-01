@@ -1,0 +1,10 @@
+# vs project file
+.vs/
+*.suo
+*.user
+*bin/
+*Bin/
+*obj/
+*Obj/
+TestResults/
+packages/
