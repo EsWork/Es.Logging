@@ -28,10 +28,10 @@ namespace Es.Logging
         /// <param name="logLevel">The log level.</param>
         /// <param name="message">The message.</param>
         /// <param name="exception">The exception.</param>
-        void Write(LogLevel logLevel, string message, Exception exception);
+        void Log(LogLevel logLevel, string message, Exception exception);
 
         /// <summary>
-        /// Determines whether the specified log level is enabled.
+        /// Checks if the given LogLevel is enabled.
         /// </summary>
         /// <param name="logLevel">The log level.</param>
         /// <returns><c>true</c> if the specified log level is enabled; otherwise, <c>false</c>.</returns>
