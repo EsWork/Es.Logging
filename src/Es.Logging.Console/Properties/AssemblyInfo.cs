@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Es.Logging")]
-[assembly: AssemblyDescription("easy work logger")]
+[assembly: AssemblyTitle("Es.Logging.Console")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Es.Logging")]
+[assembly: AssemblyProduct("Es.Logging.Console")]
 [assembly: AssemblyCopyright("Copyright © EsWork 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("2f0e2820-4b10-45fd-8fbf-add52325b499")]
+[assembly: Guid("f444e7f9-fcd2-4fb8-a5cf-fb86244e86e1")]
 
 // 程序集的版本信息由下列四个值组成: 
 //
@@ -34,5 +34,3 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("0.0.1.0")]
 [assembly: AssemblyFileVersion("0.0.1.0")]
-
-[assembly: InternalsVisibleTo("LoggingTest")]

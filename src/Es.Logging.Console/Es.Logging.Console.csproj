@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1EE34F09-7376-4EF1-812E-AE195750E3FC}</ProjectGuid>
+    <ProjectGuid>{F444E7F9-FCD2-4FB8-A5CF-FB86244E86E1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LoggingTest</RootNamespace>
-    <AssemblyName>LoggingTest</AssemblyName>
+    <RootNamespace>Es.Logging.Console</RootNamespace>
+    <AssemblyName>Es.Logging.Console</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,25 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleLoggerTest.cs" />
-    <Compile Include="LoggerTest.cs" />
+    <Compile Include="ConsoleLogger.cs" />
+    <Compile Include="ConsoleLoggerProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Es.Logging.Console\Es.Logging.Console.csproj">
-      <Project>{f444e7f9-fcd2-4fb8-a5cf-fb86244e86e1}</Project>
-      <Name>Es.Logging.Console</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Es.Logging\Es.Logging.csproj">
       <Project>{2f0e2820-4b10-45fd-8fbf-add52325b499}</Project>
       <Name>Es.Logging</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
