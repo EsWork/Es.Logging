@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Es.Logging.Console
 {
@@ -24,7 +25,7 @@ namespace Es.Logging.Console
                 return;
             }
 
-            message = LogFormatter.Formatter(message, exception);
+            message = Formatter(message, exception);
 
             if (string.IsNullOrEmpty(message))
                 return;
@@ -40,34 +41,25 @@ namespace Es.Logging.Console
 
         protected virtual void WriteLine(LogLevel logLevel, string name, string message) {
             if (logLevel >= LogLevel.Error)
-                System.Console.Error.WriteLine("{0}:[{1}] {2}", GetLogLevelLable(logLevel), name, message);
+                System.Console.Error.WriteLine("{0}:[{1}] {2}", logLevel.ToString().ToLowerInvariant(), name, message);
             else
-                System.Console.WriteLine("{0}:[{1}] {2}", GetLogLevelLable(logLevel), name, message);
+                System.Console.WriteLine("{0}:[{1}] {2}", logLevel.ToString().ToLowerInvariant(), name, message);
         }
 
-        private static string GetLogLevelLable(LogLevel logLevel) {
-            switch (logLevel) {
-                case LogLevel.Debug:
-                    return "debug   ";
-
-                case LogLevel.Trace:
-                    return "trace   ";
-
-                case LogLevel.Info:
-                    return "info    ";
-
-                case LogLevel.Warn:
-                    return "warning ";
-
-                case LogLevel.Error:
-                    return "error   ";
-
-                case LogLevel.Fatal:
-                    return "fatal   ";
-
-                default:
-                    return "unknown ";
+        private static string Formatter(string message, Exception error) {
+            if (message == null && error == null) {
+                throw new InvalidOperationException("Not found the message or exception information to create a log message.");
             }
+
+            if (message == null) {
+                return error.ToString();
+            }
+
+            if (error == null) {
+                return message;
+            }
+
+            return string.Format(CultureInfo.InvariantCulture, "{0}{1}{2}", message, Environment.NewLine, error.ToString());
         }
     }
 }

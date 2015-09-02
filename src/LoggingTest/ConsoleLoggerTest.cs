@@ -41,10 +41,10 @@ namespace LoggingTest
 
                 Console.SetError(tw);
 
-                logger.Error(null, exception);
+                logger.Log(LogLevel.Error, null, exception);
             }
 
-            Assert.AreEqual("error   :[LoggingTest.ConsoleLoggerTest] System.InvalidOperationException: Invalid value\r\n", sb.ToString());
+            Assert.AreEqual("error:[LoggingTest.ConsoleLoggerTest] System.InvalidOperationException: Invalid value\r\n", sb.ToString());
 
             Console.SetOut(bakOut);
         }

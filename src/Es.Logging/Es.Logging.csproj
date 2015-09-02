@@ -42,9 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ILogger.cs" />
+    <Compile Include="ILoggerFactory.cs" />
     <Compile Include="ILoggerProvider.cs" />
-    <Compile Include="LogFormatter.cs" />
+    <Compile Include="AggregateLogger.cs" />
     <Compile Include="LoggerExtensions.cs" />
+    <Compile Include="LoggerFactory.cs" />
+    <Compile Include="LoggerFactoryExtensions.cs" />
     <Compile Include="LogLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
