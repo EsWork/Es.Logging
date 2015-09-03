@@ -11,7 +11,5 @@ namespace Es.Logging
         ILogger CreateLogger(string name);
 
         void AddProvider(ILoggerProvider[] providers);
-
-        ILoggerProvider[] Providers { get; }
     }
 }

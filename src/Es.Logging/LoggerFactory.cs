@@ -10,12 +10,6 @@ namespace Es.Logging
 
         private readonly Dictionary<string, AggregateLogger> _loggers = new Dictionary<string, AggregateLogger>();
 
-        public ILoggerProvider[] Providers {
-            get {
-                return _providers.ToArray();
-            }
-        }
-
         public void AddProvider(ILoggerProvider[] providers) {
             lock (lockObject) {
                 _providers.AddRange(providers);
@@ -31,7 +25,7 @@ namespace Es.Logging
             if (!_loggers.TryGetValue(name, out logger)) {
                 lock (lockObject) {
                     if (!_loggers.TryGetValue(name, out logger)) {
-                        logger = new AggregateLogger(Providers, name);
+                        logger = new AggregateLogger(_providers.ToArray(), name);
                         _loggers[name] = logger;
                     }
                 }
