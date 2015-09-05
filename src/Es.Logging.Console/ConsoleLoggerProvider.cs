@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Es.Logging.Console
+namespace Es.Logging
 {
     public class ConsoleLoggerProvider : ILoggerProvider
     {

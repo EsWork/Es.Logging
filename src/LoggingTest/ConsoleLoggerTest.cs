@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Es.Logging;
-using Es.Logging.Console;
 using NUnit.Framework;
 
 namespace LoggingTest

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace Es.Logging.Console
+namespace Es.Logging
 {
     public class ConsoleLogger : ILogger
     {
