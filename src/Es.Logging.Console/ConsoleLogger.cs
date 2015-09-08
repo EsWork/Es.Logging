@@ -40,10 +40,38 @@ namespace Es.Logging
         }
 
         protected virtual void WriteLine(LogLevel logLevel, string name, string message) {
+            SetConsoleColor(logLevel);
             if (logLevel >= LogLevel.Error)
-                System.Console.Error.WriteLine("{0}:[{1}] {2}", logLevel.ToString().ToLowerInvariant(), name, message);
+                Console.Error.WriteLine("{0}:[{1}] {2}", logLevel.ToString().ToLowerInvariant(), name, message);
             else
-                System.Console.WriteLine("{0}:[{1}] {2}", logLevel.ToString().ToLowerInvariant(), name, message);
+                Console.WriteLine("{0}:[{1}] {2}", logLevel.ToString().ToLowerInvariant(), name, message);
+            Console.ResetColor();
+        }
+
+        private void SetConsoleColor(LogLevel logLevel) {
+            switch (logLevel) {
+                case LogLevel.Fatal:
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
+
+                case LogLevel.Error:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    break;
+
+                case LogLevel.Warn:
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    break;
+
+                case LogLevel.Info:
+                    Console.ForegroundColor = ConsoleColor.White;
+                    break;
+
+                case LogLevel.Trace:
+                default:
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    break;
+            }
         }
 
         private static string Formatter(string message, Exception error) {

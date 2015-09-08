@@ -41,6 +41,10 @@ namespace Es.Logging
             Logger(logger, LogLevel.Warn, message, error);
         }
 
+        public static void Warn(this ILogger logger, Exception error) {
+            Logger(logger, LogLevel.Warn, error.Message, error);
+        }
+
         public static void Error(this ILogger logger, string message) {
             Logger(logger, LogLevel.Error, message);
         }
@@ -53,6 +57,10 @@ namespace Es.Logging
             Logger(logger, LogLevel.Error, message, error);
         }
 
+        public static void Error(this ILogger logger,  Exception error) {
+            Logger(logger, LogLevel.Error, error.Message, error);
+        }
+
         public static void Fatal(this ILogger logger, string message) {
             Logger(logger, LogLevel.Fatal, message);
         }
@@ -63,6 +71,10 @@ namespace Es.Logging
 
         public static void Fatal(this ILogger logger, string message, Exception error) {
             Logger(logger, LogLevel.Fatal, message, error);
+        }
+
+        public static void Fatal(this ILogger logger, Exception error) {
+            Logger(logger, LogLevel.Fatal, error.Message, error);
         }
 
         private static void Logger(ILogger logger, LogLevel logLevel, string message) {
