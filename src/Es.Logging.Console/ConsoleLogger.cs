@@ -51,16 +51,15 @@ namespace Es.Logging
         private void SetConsoleColor(LogLevel logLevel) {
             switch (logLevel) {
                 case LogLevel.Fatal:
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    break;
-
-                case LogLevel.Error:
                     Console.ForegroundColor = ConsoleColor.Red;
                     break;
 
-                case LogLevel.Warn:
+                case LogLevel.Error:
                     Console.ForegroundColor = ConsoleColor.Yellow;
+                    break;
+
+                case LogLevel.Warn:
+                    Console.ForegroundColor = ConsoleColor.Magenta;
                     break;
 
                 case LogLevel.Info:
@@ -68,6 +67,8 @@ namespace Es.Logging
                     break;
 
                 case LogLevel.Trace:
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    break;
                 default:
                     Console.ForegroundColor = ConsoleColor.Gray;
                     break;

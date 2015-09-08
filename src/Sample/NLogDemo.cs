@@ -4,16 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Es.Logging;
+using NLog;
+using NLog.Config;
+using NLog.Targets;
 
 namespace Sample
 {
-    public class ConsoleDemo
+    public class NLogDemo
     {
         private readonly ILoggerFactory _logFactory;
 
-        public ConsoleDemo() {
+        public NLogDemo() {
             _logFactory = new LoggerFactory();
-            _logFactory.AddConsole(LogLevel.Trace);
+
+            LoggingConfiguration config = new LoggingConfiguration();
+
+            ColoredConsoleTarget consoleTarget = new ColoredConsoleTarget();
+            config.AddTarget("console", consoleTarget);
+
+            LoggingRule rule1 = new LoggingRule("*", NLog.LogLevel.Trace, consoleTarget);
+            config.LoggingRules.Add(rule1);
+
+            LogFactory factory = new LogFactory(config);
+
+            _logFactory.AddNLog(factory);
         }
 
         [Demo]
@@ -21,7 +35,7 @@ namespace Sample
             var log = _logFactory.CreateLogger("ConsoleDemo");
 
             log.Trace("Trace....");
-            log.Debug("Debug...");
+            log.Debug("Verbose...");
             log.Info("Information....");
             log.Error("Error...");
             log.Warn("Warning...");
