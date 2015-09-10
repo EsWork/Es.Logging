@@ -42,9 +42,17 @@ namespace Es.Logging
         protected virtual void WriteLine(LogLevel logLevel, string name, string message) {
             SetConsoleColor(logLevel);
             if (logLevel >= LogLevel.Error)
-                Console.Error.WriteLine("{0}:[{1}] {2}", logLevel.ToString().ToLowerInvariant(), name, message);
+                Console.Error.WriteLine("{0} {1}:[{2}] {3}",
+                    DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"),
+                    logLevel.ToString().ToLowerInvariant(),
+                    name,
+                    message);
             else
-                Console.WriteLine("{0}:[{1}] {2}", logLevel.ToString().ToLowerInvariant(), name, message);
+                Console.WriteLine("{0} {1}:[{2}] {3}",
+                    DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"),
+                    logLevel.ToString().ToLowerInvariant(),
+                    name,
+                    message);
             Console.ResetColor();
         }
 
