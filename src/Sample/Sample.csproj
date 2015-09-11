@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="ConsoleDemo.cs" />
     <Compile Include="Log4Demo.cs" />
+    <Compile Include="LoggerManagerDemo.cs" />
     <Compile Include="NLogDemo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

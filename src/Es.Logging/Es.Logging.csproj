@@ -48,6 +48,7 @@
     <Compile Include="LoggerExtensions.cs" />
     <Compile Include="LoggerFactory.cs" />
     <Compile Include="LoggerFactoryExtensions.cs" />
+    <Compile Include="LoggerManager.cs" />
     <Compile Include="LogLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
