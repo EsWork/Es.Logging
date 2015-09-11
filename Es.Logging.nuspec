@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>Es.Logging</id>
+    <version>0.0.0</version>
+    <title>easy work | Logging</title>
+    <authors>v.la@Live.cn</authors>
+    <owners>v.la@Live.cn</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>C# Logging Factory</description>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://github.com/EsWork/Es.Logging</projectUrl>
+    <tags>logging,log,logger</tags>
+    <language>en-US</language>
+  </metadata>
+  <files>
+    <file src="artifacts\bin\Es.Logging.dll" target="lib\net45" />
+    <file src="artifacts\bin\Es.Logging.XML" target="lib\net45" />
+  </files>
+</package>
