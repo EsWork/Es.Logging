@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using log4net;
 
 namespace Es.Logging
 {
-    class Log4 : ILogger
+    internal class Log4 : ILogger
     {
         private readonly ILog _log;
 
@@ -24,7 +20,7 @@ namespace Es.Logging
         public void Log(LogLevel logLevel, string message, Exception exception) {
             _log.Logger.Log(ThisDeclaringType,
                 GetLogLevel(logLevel),
-                message, 
+                message,
                 exception);
         }
 

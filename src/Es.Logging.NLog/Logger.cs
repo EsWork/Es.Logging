@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Es.Logging
 {
-    class Logger : ILogger
+    internal class Logger : ILogger
     {
-        NLog.Logger _logger;
+        private NLog.Logger _logger;
 
         public Logger(NLog.Logger logger) {
             _logger = logger;
@@ -20,7 +16,6 @@ namespace Es.Logging
         }
 
         public void Log(LogLevel logLevel, string message, Exception exception) {
-
             if (string.IsNullOrEmpty(message) && exception == null)
                 return;
 

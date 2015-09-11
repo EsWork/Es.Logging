@@ -77,6 +77,7 @@ namespace Es.Logging
                 case LogLevel.Trace:
                     Console.ForegroundColor = ConsoleColor.DarkGray;
                     break;
+
                 default:
                     Console.ForegroundColor = ConsoleColor.Gray;
                     break;
