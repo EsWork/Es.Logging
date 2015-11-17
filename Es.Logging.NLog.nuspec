@@ -13,7 +13,7 @@
     <tags>logging,log,logger</tags>
     <language>en-US</language>
     <dependencies>
-      <dependency id="Es.Logging" version="0.0.1" />
+      <dependency id="Es.Logging" version="0.0.2" />
       <dependency id="NLog" version="[4.1.0,]" />
     </dependencies>
   </metadata>
