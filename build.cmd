@@ -32,6 +32,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command "& '%~dp0tools\psake\psak
 echo.
 echo Build ok!
 echo.
+set menu=
 goto menu
 
 :2
@@ -42,6 +43,7 @@ call nuget-push.cmd
 echo.
 echo Build ok!
 echo.
+set menu=
 goto menu
 
 :help
