@@ -1,7 +1,7 @@
 ﻿properties {
   $tfver ="v4.5";
   $config = "Release"
-  $base_version = "0.0.3" 
+  $base_version = "0.0.4" 
   $base_dir = Split-Path $psake.build_script_file 
 
   $src_dir = "$base_dir"
