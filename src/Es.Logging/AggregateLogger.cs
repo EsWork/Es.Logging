@@ -14,17 +14,44 @@ namespace Es.Logging
         }
 
         public bool IsEnabled(LogLevel logLevel) {
+            List<Exception> exceptions = null;
             foreach (var logger in _loggers) {
-                if (logger.IsEnabled(logLevel)) {
-                    return true;
+                try {
+                    if (logger.IsEnabled(logLevel)) {
+                        return true;
+                    }
                 }
+                catch (Exception ex) {
+                    if (exceptions == null) {
+                        exceptions = new List<Exception>();
+                    }
+                    exceptions.Add(ex);
+                }
+            }
+            if (exceptions != null && exceptions.Count > 0) {
+                throw new AggregateException(
+                    message: "An error occurred while writing to logger(s).",
+                    innerExceptions: exceptions);
             }
             return false;
         }
 
         public void Log(LogLevel logLevel, string message, Exception exception) {
+            List<Exception> exceptions = null;
             foreach (var logger in _loggers) {
-                logger.Log(logLevel, message, exception);
+                try {
+                    logger.Log(logLevel, message, exception);
+                }
+                catch (Exception ex) {
+                    if (exceptions == null) {
+                        exceptions = new List<Exception>();
+                    }
+                    exceptions.Add(ex);
+                }
+            }
+            if (exceptions != null && exceptions.Count > 0) {
+                throw new AggregateException(
+                    message: "An error occurred while writing to logger(s).", innerExceptions: exceptions);
             }
         }
 
