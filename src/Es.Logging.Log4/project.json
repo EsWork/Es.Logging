@@ -4,6 +4,18 @@
   "title": "Es.Logging.Log4",
   "description": "Easy Logging",
   "authors": [ "EsWork", "v.la@live.cn" ],
+  "packOptions": {
+    "summary": "Easy Work logging for .NET",
+    "owners": [ "v.la@live.cn" ],
+    "tags": [ "logging", "log", "logger" ],
+    "projectUrl": "https://github.com/EsWork/Es.Logging",
+    "licenseUrl": "https://github.com/EsWork/Es.Logging/blob/master/LICENSE",
+    "requireLicenseAcceptance": false,
+    "repository": {
+      "type": "git",
+      "url": "git://github.com//EsWork/Es.Logging"
+    }
+  },
   "buildOptions": {
     "define": [ "NETCORE" ],
     "debugType": "portable",
