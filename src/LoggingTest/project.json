@@ -1,8 +1,8 @@
 {
 
   "dependencies": {
-    "Es.Logging": "1.0.0-beta1",
-    "Es.Logging.Console": "1.0.0-beta1",
+    "Es.Logging": "1.0.0-*",
+    "Es.Logging.Console": "1.0.0-*",
     "xunit": "2.2.0-*"
   },
   "testRunner": "xunit",
