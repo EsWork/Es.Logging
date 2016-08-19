@@ -25,27 +25,5 @@ namespace LoggingTest
             Assert.True(logger.IsEnabled(LogLevel.Error));
             Assert.True(logger.IsEnabled(LogLevel.Fatal));
         }
-
-        [Fact]
-        public void Can_Console_WritesException() {
-            var logger = new ConsoleLogger(this.GetType().FullName, LogLevel.Debug);
-
-            var exception = new InvalidOperationException("Invalid value");
-
-            StringBuilder sb = new StringBuilder();
-
-            var bakOut = Console.Error;
-
-            using (var tw = new StringWriter(sb)) {
-
-                Console.SetError(tw);
-
-                logger.Log(LogLevel.Error, null, exception);
-            }
-
-            Assert.Equal("error:[LoggingTest.ConsoleLoggerTest] System.InvalidOperationException: Invalid value\r\n", sb.ToString());
-
-            Console.SetOut(bakOut);
-        }
     }
 }
