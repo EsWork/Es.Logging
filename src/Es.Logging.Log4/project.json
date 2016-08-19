@@ -1,0 +1,23 @@
+﻿{
+  "name": "Es.Logging.Log4",
+  "version": "1.0.0-beta1",
+  "title": "Es.Logging.Log4",
+  "description": "Easy Logging",
+  "authors": [ "EsWork", "v.la@live.cn" ],
+  "buildOptions": {
+    "define": [ "NETCORE" ],
+    "debugType": "portable",
+    "warningsAsErrors": true,
+    "keyFile": "../Es.snk"
+  },
+  "frameworks": {
+    "net45": {
+      "dependencies": {
+        "log4net": "2.0.5"
+      }
+    }
+  },
+  "dependencies": {
+    "Es.Logging": "1.0.0-beta1"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Es.Logging.NLog",
+  "version": "1.0.0-beta1",
+  "title": "Es.Logging.NLog",
+  "description": "Easy Logging",
+  "authors": [ "EsWork", "v.la@live.cn" ],
+  "buildOptions": {
+    "define": [ "NETCORE" ],
+    "debugType": "portable",
+    "warningsAsErrors": true,
+    "keyFile": "../Es.snk"
+  },
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": [
+        "dotnet5.6",
+        "portable-net451+win8"
+      ],
+      "dependencies": {
+        "NLog": "4.4.0-*"
+      }
+    },
+    "net45": {
+      "dependencies": {
+        "NLog": "4.3.7"
+      }
+    }
+  },
+  "dependencies": {
+    "Es.Logging": "1.0.0-beta1"
+  }
+}
