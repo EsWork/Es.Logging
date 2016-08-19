@@ -16,4 +16,4 @@ Add dependency in project.json
 ## 例子
 ---
 
-请查看[Sample](Sample)工程使用，easy work!
+请查看[Sample](https://github.com/EsWork/Es.Logging/tree/dev/src/Sample)工程使用，easy work!
