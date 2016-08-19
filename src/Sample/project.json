@@ -16,14 +16,14 @@
     "net45": {
       "buildOptions": { "define": [ "NET45" ] },
       "dependencies": {
-        "Es.Logging.Log4": "1.0.0-beta1",
+        "Es.Logging.Log4": "1.0.0-*",
         "log4net": "2.0.5"
       }
     }
   },
   "dependencies": {
-    "Es.Logging": "1.0.0-beta1",
-    "Es.Logging.Console": "1.0.0-beta1",
-    "Es.Logging.NLog": "1.0.0-beta1"
+    "Es.Logging": "1.0.0-*",
+    "Es.Logging.Console": "1.0.0-*",
+    "Es.Logging.NLog": "1.0.0-*"
   }
 }

@@ -1,6 +1,6 @@
 ﻿{
   "name": "Es.Logging.Console",
-  "version": "1.0.0-beta1",
+  "version": "1.0.0",
   "title": "Es.Logging.Console",
   "description": "Easy Logging",
   "authors": [ "EsWork", "v.la@live.cn" ],
@@ -34,6 +34,6 @@
     }
   },
   "dependencies": {
-    "Es.Logging": "1.0.0-beta1"
+    "Es.Logging": "1.0.0"
   }
 }
