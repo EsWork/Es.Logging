@@ -1,6 +1,6 @@
 {
   "name": "Es.Logging",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "Es.Logging",
   "description": "Easy Logging",
   "authors": [ "EsWork", "v.la@live.cn" ],
@@ -17,27 +17,25 @@
     }
   },
   "buildOptions": {
-    "define": [ "NETCORE" ],
     "debugType": "portable",
+    "xmlDoc": true,
     "warningsAsErrors": true,
     "keyFile": "../Es.snk"
   },
   "frameworks": {
     "netstandard1.6": {
-      "imports": [
-        "dotnet5.6",
-        "portable-net451+win8"
-      ],
+      "buildOptions": {
+        "define": [
+          "NETSTANDARD"
+        ]
+      },
       "dependencies": {
-        "NETStandard.Library": "1.6.0-*"
+        "NETStandard.Library": "1.6.1-*"
       }
     },
     "net45": {
-      "buildOptions": { "define": [ "NET45" ] },
-      "frameworkAssemblies": {
-        "System": "",
-        "System.Core": ""
-      }
+      "buildOptions": { "define": [ "NETFULL" ] },
+      "frameworkAssemblies": {}
     }
   }
 }

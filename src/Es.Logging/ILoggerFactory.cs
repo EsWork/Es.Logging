@@ -1,19 +1,4 @@
-﻿// ==++==
-//
-//  Copyright (c) . All rights reserved.
-//
-// ==--==
-/* ---------------------------------------------------------------------------
- *
- * Author			: v.la
- * Email			: v.la@live.cn
- * Created			: 2015-09-07
- * Class			: ILoggerFactory.cs
- *
- * ---------------------------------------------------------------------------
- * */
-
-namespace Es.Logging
+﻿namespace Es.Logging
 {
     /// <summary>
     /// Interface ILoggerFactory

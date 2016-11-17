@@ -1,19 +1,4 @@
-﻿// ==++==
-//
-//  Copyright (c) . All rights reserved.
-//
-// ==--==
-/* ---------------------------------------------------------------------------
- *
- * Author			: v.la
- * Email			: v.la@live.cn
- * Created			: 2015-09-01
- * Class			: ILogger.cs
- *
- * ---------------------------------------------------------------------------
- * */
-
-using System;
+﻿using System;
 
 namespace Es.Logging
 {

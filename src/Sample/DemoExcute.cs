@@ -56,7 +56,7 @@ public static class DemoExcute
     /// </summary>
     /// <param name="t">The t.</param>
     public static void Excute(Type t) {
-#if NET45
+#if NETFULL
         var dataAccess = t.Assembly;
 #else
         var dataAccess = t.GetTypeInfo().Assembly;

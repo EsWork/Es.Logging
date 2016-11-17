@@ -1,22 +1,7 @@
-﻿// ==++==
-//
-//  Copyright (c) . All rights reserved.
-//
-// ==--==
-/* ---------------------------------------------------------------------------
- *
- * Author			: v.la
- * Email			: v.la@live.cn
- * Created			: 2015-09-02
- * Class			: LoggerFactoryExtensions.cs
- *
- * ---------------------------------------------------------------------------
- * */
-
-namespace Es.Logging
+﻿namespace Es.Logging
 {
     /// <summary>
-    /// Class LoggerFactoryExtensions.
+    /// Logger Extensions.
     /// </summary>
     public static class LoggerFactoryExtensions
     {

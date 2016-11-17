@@ -1,19 +1,4 @@
-﻿// ==++==
-//
-//  Copyright (c) . All rights reserved.
-//
-// ==--==
-/* ---------------------------------------------------------------------------
- *
- * Author			: v.la
- * Email			: v.la@live.cn
- * Created			: 2015-09-01
- * Class			: LogLevel.cs
- *
- * ---------------------------------------------------------------------------
- * */
-
-namespace Es.Logging
+﻿namespace Es.Logging
 {
     /// <summary>
     /// Defines available log levels.

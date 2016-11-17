@@ -1,19 +1,4 @@
-﻿// ==++==
-//
-//  Copyright (c) . All rights reserved.
-//
-// ==--==
-/* ---------------------------------------------------------------------------
- *
- * Author			: v.la
- * Email			: v.la@live.cn
- * Created			: 2015-09-11
- * Class			: LoggerManager.cs
- *
- * ---------------------------------------------------------------------------
- * */
-
-namespace Es.Logging
+﻿namespace Es.Logging
 {
     /// <summary>
     /// Class LoggerManager. This class cannot be inherited.
@@ -22,7 +7,7 @@ namespace Es.Logging
     {
         private static ILoggerFactory _factory = new LoggerFactory();
 
-#if NET45
+#if NETFULL
 
         /// <summary>
         /// Gets the current class logger.

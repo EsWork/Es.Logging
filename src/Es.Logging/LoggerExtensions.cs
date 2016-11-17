@@ -1,25 +1,10 @@
-﻿// ==++==
-//
-//  Copyright (c) . All rights reserved.
-//
-// ==--==
-/* ---------------------------------------------------------------------------
- *
- * Author			: v.la
- * Email			: v.la@live.cn
- * Created			: 2015-09-11
- * Class			: LoggerExtensions.cs
- *
- * ---------------------------------------------------------------------------
- * */
-
-using System;
+﻿using System;
 using System.Globalization;
 
 namespace Es.Logging
 {
     /// <summary>
-    /// Class LoggerExtensions.
+    /// Logger Extensions Function.
     /// </summary>
     public static class LoggerExtensions
     {

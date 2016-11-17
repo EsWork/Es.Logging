@@ -1,23 +1,35 @@
 {
 
   "dependencies": {
-    "Es.Logging": "1.0.0-*",
-    "Es.Logging.Console": "1.0.0-*",
-    "xunit": "2.2.0-*"
+    "Es.Logging": "1.0.1-*",
+    "Es.Logging.Console": "1.0.1-*",
+    "xunit": "2.2.0-*",
+    "dotnet-test-xunit": "2.2.0-*"
   },
   "testRunner": "xunit",
   "frameworks": {
-    "netcoreapp1.0": {
+    "netcoreapp1.1": {
       "imports": [
         "dnxcore50",
         "portable-net451+win8"
       ],
+      "buildOptions": {
+        "define": [
+          "NETSTANDARD"
+        ]
+      },
       "dependencies": {
         "Microsoft.NETCore.App": {
-          "version": "1.0.0-*",
+          "version": "1.1.0-*",
           "type": "platform"
-        },
-        "dotnet-test-xunit": "2.2.0-*"
+        }
+      }
+    },
+    "net451": {
+      "buildOptions": { "define": [ "NETFULL" ] },
+      "dependencies": {
+      },
+      "frameworkAssemblies": {
       }
     }
   }

@@ -7,9 +7,9 @@
 Add dependency in project.json 
 ```xml
 "dependencies": {
-   "Es.Logging": "1.0.0-*",
-   "Es.Logging.NLog": "1.0.0-*",
-   "Es.Logging.Console": "1.0.0-*"
+   "Es.Logging": "1.0.2-*",
+   "Es.Logging.NLog": "1.0.2-*",
+   "Es.Logging.Console": "1.0.2-*"
  }
 ```
 

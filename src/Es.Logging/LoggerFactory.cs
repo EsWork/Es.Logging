@@ -1,24 +1,9 @@
-﻿// ==++==
-//
-//  Copyright (c) . All rights reserved.
-//
-// ==--==
-/* ---------------------------------------------------------------------------
- *
- * Author			: v.la
- * Email			: v.la@live.cn
- * Created			: 2015-09-07
- * Class			: LoggerFactory.cs
- *
- * ---------------------------------------------------------------------------
- * */
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Es.Logging
 {
     /// <summary>
-    /// Class LoggerFactory.
+    /// Logger is based on the factory create instance
     /// </summary>
     public class LoggerFactory : ILoggerFactory
     {
@@ -28,12 +13,12 @@ namespace Es.Logging
         private readonly object lockObject = new object();
 
         /// <summary>
-        /// The _providers
+        /// More than one Provider
         /// </summary>
         private List<ILoggerProvider> _providers = new List<ILoggerProvider>();
 
         /// <summary>
-        /// The _loggers
+        /// For different Loggers
         /// </summary>
         private readonly Dictionary<string, AggregateLogger> _loggers = new Dictionary<string, AggregateLogger>();
 
