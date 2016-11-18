@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Es.Logging
 {
+    
     internal class AggregateLogger : ILogger
     {
         private readonly string _logName;

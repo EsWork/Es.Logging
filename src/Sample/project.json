@@ -21,13 +21,13 @@
     "net45": {
       "buildOptions": { "define": [ "NETFULL" ] },
       "dependencies": {
-        "Es.Logging.Log4": "1.0.1-*"
+        "Es.Logging.Log4": "1.0.2-*"
       }
     }
   },
   "dependencies": {
-    "Es.Logging": "1.0.1-*",
-    "Es.Logging.Console": "1.0.1-*",
-    "Es.Logging.NLog": "1.0.1-*"
+    "Es.Logging": "1.0.2-*",
+    "Es.Logging.Console": "1.0.2-*",
+    "Es.Logging.NLog": "1.0.2-*"
   }
 }

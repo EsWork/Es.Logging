@@ -1,8 +1,8 @@
 {
 
   "dependencies": {
-    "Es.Logging": "1.0.1-*",
-    "Es.Logging.Console": "1.0.1-*",
+    "Es.Logging": "1.0.2-*",
+    "Es.Logging.Console": "1.0.2-*",
     "xunit": "2.2.0-*",
     "dotnet-test-xunit": "2.2.0-*"
   },
