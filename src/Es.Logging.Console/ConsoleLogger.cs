@@ -1,19 +1,36 @@
 ﻿using System;
 using System.Globalization;
+using System.Runtime.InteropServices;
 
 namespace Es.Logging
 {
-    public class ConsoleLogger : ILogger
+    internal class ConsoleLogger : ILogger
     {
+
+        private readonly IConsole _console;
+
         private readonly string _name;
 
         private readonly LogLevel _minLevel;
 
-        private readonly object lockObject = new object();
+        private readonly object _syncLock = new object();
+
+        private readonly ConsoleColor? DefaultConsoleColor = null;
 
         public ConsoleLogger(string name, LogLevel minLevel) {
             _name = name;
             _minLevel = minLevel;
+
+#if !NET40
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
+                _console = new WindowsLogConsole();
+            }
+            else {
+                _console = new UnixLogConsole();
+            }
+#else
+            _console = new WindowsLogConsole();
+#endif
         }
 
         public bool IsEnabled(LogLevel logLevel) {
@@ -30,59 +47,89 @@ namespace Es.Logging
             if (string.IsNullOrEmpty(message))
                 return;
 
-            lock (SyncRoot) {
-                WriteLine(logLevel, _name, message);
-            }
+            WriteLine(logLevel, _name, message);
         }
 
-        protected object SyncRoot
-        {
-            get { return lockObject; }
-        }
 
         protected virtual void WriteLine(LogLevel logLevel, string name, string message) {
-            SetConsoleColor(logLevel);
-            if (logLevel >= LogLevel.Error)
-                Console.Error.WriteLine("{0} {1}:[{2}] {3}",
-                    DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"),
-                    logLevel.ToString().ToLowerInvariant(),
-                    name,
-                    message);
-            else
-                Console.WriteLine("{0} {1}:[{2}] {3}",
-                    DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"),
-                    logLevel.ToString().ToLowerInvariant(),
-                    name,
-                    message);
-            Console.ResetColor();
+
+            var color = GetColor(logLevel);
+            var levelString = GetLevelString(logLevel);
+
+            lock (_syncLock) {
+                _console.Write(
+                    $"{levelString.PadLeft(5, ' ')}",
+                    color.Background,
+                    color.Foreground);
+
+                _console.WriteLine(
+                    $":{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")} {name} {message}",
+                    DefaultConsoleColor, DefaultConsoleColor);
+
+                _console.Flush();
+            }
         }
 
-        private void SetConsoleColor(LogLevel logLevel) {
+        private static string GetLevelString(LogLevel logLevel) {
             switch (logLevel) {
-                case LogLevel.Fatal:
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    break;
+                case LogLevel.Trace:
+                    return "TRACE";
 
-                case LogLevel.Error:
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    break;
-
-                case LogLevel.Warn:
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    break;
+                case LogLevel.Debug:
+                    return "DEBUG";
 
                 case LogLevel.Info:
-                    Console.ForegroundColor = ConsoleColor.White;
-                    break;
+                    return "INFO";
 
-                case LogLevel.Trace:
-                    Console.ForegroundColor = ConsoleColor.DarkGray;
-                    break;
+                case LogLevel.Warn:
+                    return "WARN";
+
+                case LogLevel.Error:
+                    return "ERROR";
+
+                case LogLevel.Fatal:
+                    return "FATAL";
 
                 default:
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    break;
+                    throw new ArgumentOutOfRangeException(nameof(logLevel));
             }
+        }
+
+        private Color GetColor(LogLevel logLevel) {
+            switch (logLevel) {
+                case LogLevel.Fatal:
+                    return new Color(ConsoleColor.White, ConsoleColor.Red);
+
+                case LogLevel.Error:
+                    return new Color(ConsoleColor.Black, ConsoleColor.Red);
+
+                case LogLevel.Warn:
+                    return new Color(ConsoleColor.Yellow, ConsoleColor.Black);
+
+                case LogLevel.Info:
+                    return new Color(ConsoleColor.DarkGreen, ConsoleColor.Black);
+
+                case LogLevel.Trace:
+                    return new Color(ConsoleColor.Gray, ConsoleColor.Black);
+
+                case LogLevel.Debug:
+                    return new Color(ConsoleColor.Gray, ConsoleColor.Black);
+
+                default:
+                    return new Color(ConsoleColor.White, ConsoleColor.Red);
+            }
+        }
+
+        private struct Color
+        {
+            public Color(ConsoleColor? foreground, ConsoleColor? background) {
+                Foreground = foreground;
+                Background = background;
+            }
+
+            public ConsoleColor? Foreground { get; }
+
+            public ConsoleColor? Background { get; }
         }
 
         private static string Formatter(string message, Exception error) {
