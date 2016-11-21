@@ -21,7 +21,7 @@ namespace Es.Logging
             _name = name;
             _minLevel = minLevel;
 
-#if !NET40
+#if !NET40 && !NET45
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
                 _console = new WindowsLogConsole();
             }

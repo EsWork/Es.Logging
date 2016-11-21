@@ -36,10 +36,7 @@
     "net45": {
       "buildOptions": { "define": [ "NETFULL" ] },
       "frameworkAssemblies": {
-        "System.Runtime": "4.0.0.0"
-      },
-      "dependencies": {
-        "System.Runtime.InteropServices.RuntimeInformation": "4.3.0"
+       
       }
     }
   },
