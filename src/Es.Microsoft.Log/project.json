@@ -1,0 +1,34 @@
+﻿{
+  "name": "Es.Microsoft.Log",
+  "version": "1.0.2",
+  "title": "Es.Microsoft.Log",
+  "description": "Support for Microsoft.Extensions.Logging",
+  "authors": [ "v.la@live.cn" ],
+  "packOptions": {
+    "owners": [ "v.la@live.cn" ],
+    "tags": [ "logging", "log", "logger" ],
+    "projectUrl": "https://github.com/vla/Es.Extensions.Logging.NLog",
+    "licenseUrl": "https://github.com/vla/Es.Extensions.Logging.NLog/blob/master/LICENSE",
+    "requireLicenseAcceptance": false,
+    "repository": {
+      "type": "git",
+      "url": "git://github.com//EsWork/Es.Logging"
+    }
+  },
+  "buildOptions": {
+    "debugType": "portable",
+    "warningsAsErrors": true,
+    "keyFile": "../Es.snk"
+  },
+  "dependencies": {
+    "Es.Logging": "1.0.2",
+    "Microsoft.Extensions.Logging.Abstractions": "1.1.0-*"
+  },
+
+  "frameworks": {
+    "netstandard1.3": {
+    },
+    "netstandard1.6": {
+    }
+  }
+}
