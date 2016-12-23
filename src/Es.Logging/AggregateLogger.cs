@@ -56,6 +56,8 @@ namespace Es.Logging
             }
         }
 
+        internal List<ILogger> Loggers { get { return _loggers; } }
+
         internal void AddProvider(ILoggerProvider[] providers) {
             foreach (var provider in providers)
                 _loggers.Add(provider.CreateLogger(_logName));

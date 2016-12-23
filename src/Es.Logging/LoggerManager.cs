@@ -27,6 +27,23 @@
         /// </summary>
         /// <param name="factory">The factory.</param>
         public static void SetLoggerFactory(ILoggerFactory factory) {
+
+            if (factory is LoggerFactory) {
+                //transfer logger
+                var factoryOld = _factory as LoggerFactory;
+                var factoryNew = factory as LoggerFactory;
+
+                foreach (var entry in factoryOld.Loggers) {
+                    entry.Value.Loggers.Clear();
+                    entry.Value.AddProvider(factoryNew.Providers.ToArray());
+                    factoryNew.Loggers.Add(entry.Key, entry.Value);
+                }
+
+                factoryOld.Loggers.Clear();
+                factoryOld.Providers.Clear();
+                factoryOld = null;
+
+            }
             _factory = factory;
         }
 

@@ -7,20 +7,20 @@ namespace Es.Logging
     /// </summary>
     public class LoggerFactory : ILoggerFactory
     {
-        /// <summary>
-        /// The lock object
-        /// </summary>
         private readonly object lockObject = new object();
-
-        /// <summary>
-        /// More than one Provider
-        /// </summary>
-        private List<ILoggerProvider> _providers = new List<ILoggerProvider>();
 
         /// <summary>
         /// For different Loggers
         /// </summary>
-        private readonly Dictionary<string, AggregateLogger> _loggers = new Dictionary<string, AggregateLogger>();
+        internal readonly Dictionary<string, AggregateLogger> Loggers = new Dictionary<string, AggregateLogger>();
+
+        /// <summary>
+        /// More than one Provider
+        /// </summary>
+        public readonly List<ILoggerProvider> Providers = new List<ILoggerProvider>
+        {
+            new EmptyLoggerProvider()
+        };
 
         /// <summary>
         /// Adds the provider.
@@ -28,9 +28,9 @@ namespace Es.Logging
         /// <param name="providers">The providers.</param>
         public void AddProvider(ILoggerProvider[] providers) {
             lock (lockObject) {
-                _providers.AddRange(providers);
+                Providers.AddRange(providers);
                 //When add the provider, will need to update the provider of original logger
-                foreach (var logger in _loggers) {
+                foreach (var logger in Loggers) {
                     logger.Value.AddProvider(providers);
                 }
             }
@@ -43,11 +43,11 @@ namespace Es.Logging
         /// <returns>ILogger.</returns>
         public ILogger CreateLogger(string name) {
             AggregateLogger logger;
-            if (!_loggers.TryGetValue(name, out logger)) {
+            if (!Loggers.TryGetValue(name, out logger)) {
                 lock (lockObject) {
-                    if (!_loggers.TryGetValue(name, out logger)) {
-                        logger = new AggregateLogger(_providers.ToArray(), name);
-                        _loggers[name] = logger;
+                    if (!Loggers.TryGetValue(name, out logger)) {
+                        logger = new AggregateLogger(Providers.ToArray(), name);
+                        Loggers[name] = logger;
                     }
                 }
             }
