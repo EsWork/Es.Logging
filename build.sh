@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 dotnet restore src/Es.Logging
 dotnet restore src/Es.Logging.Console
