@@ -3,15 +3,15 @@
 namespace Es.Logging
 {
     /// <summary>
-    /// Used to create logger instances
+    /// 用于创建日志记录实例
     /// </summary>
     public interface ILoggerProvider : IDisposable
     {
         /// <summary>
-        /// Creates a new ILogger instance of the given name
+        /// 创建一个新的<see cref="ILogger"/>实例
         /// </summary>
-        /// <param name="name">The name.</param>
-        /// <returns>ILogger.</returns>
+        /// <param name="name">日志名</param>
+        /// <returns>返回<see cref="ILogger"/></returns>
         ILogger CreateLogger(string name);
     }
 }

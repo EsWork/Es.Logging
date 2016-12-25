@@ -3,10 +3,14 @@ using System.Collections.Generic;
 
 namespace Es.Logging
 {
-    
+    /// <summary>
+    /// 日志记录的聚合类
+    /// </summary>
     internal class AggregateLogger : ILogger
     {
         private readonly string _logName;
+
+        //日志记录的集合列表，根据不同Provider创建的日志记录
         private List<ILogger> _loggers = new List<ILogger>();
 
         public AggregateLogger(ILoggerProvider[] providers, string logName) {
@@ -58,6 +62,11 @@ namespace Es.Logging
 
         internal List<ILogger> Loggers { get { return _loggers; } }
 
+        /// <summary>
+        /// 添加新的日志记录，如果当前日志记录器已经创建，
+        /// 后期可能会追加新的<see cref="ILoggerProvider"/>并且根据日志名创建不同的日志记录方式
+        /// </summary>
+        /// <param name="providers"></param>
         internal void AddProvider(ILoggerProvider[] providers) {
             foreach (var provider in providers)
                 _loggers.Add(provider.CreateLogger(_logName));

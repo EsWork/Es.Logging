@@ -12,7 +12,7 @@
       },
       "imports": "dnxcore50",
       "dependencies": {
-        "Es.Microsoft.Log": "1.0.2",
+        "Es.Microsoft.Logging": "1.1.0",
         "Microsoft.Extensions.Logging": "1.1.0",
         "Microsoft.Extensions.Logging.Console": "1.1.0",
         "Microsoft.Extensions.Logging.Debug": "1.1.0",
@@ -25,13 +25,13 @@
     "net45": {
       "buildOptions": { "define": [ "NETFULL" ] },
       "dependencies": {
-        "Es.Logging.Log4": "1.0.2-*"
+        "Es.Logging.Log4": "1.1.0"
       }
     }
   },
   "dependencies": {
-    "Es.Logging": "1.0.2-*",
-    "Es.Logging.Console": "1.0.2.1",
-    "Es.Logging.NLog": "1.0.2-*"
+    "Es.Logging": "1.1.0",
+    "Es.Logging.Console": "1.1.0",
+    "Es.Logging.NLog": "1.1.0"
   }
 }

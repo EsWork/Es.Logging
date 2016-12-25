@@ -10,14 +10,18 @@ namespace Sample
 {
     public class LoggerManagerDemo
     {
-        ILogger _logger = LoggerManager.GetLogger("LoggerManagerDemo");
+        static ILogger _logger = LoggerManager.GetLogger("LoggerManagerDemo");
 
         [Demo]
         public void Aggregate_And_AppendProvider() {
 
+            //Demonstrate clear before
+            LoggerManager.SetLoggerFactory(new LoggerFactory());
+
             //def console
             LoggerManager.Factory.AddConsole(LogLevel.Trace);
 
+            //print 1 line
             _logger.Info("------- console -------");
 
             var config = new NLog.Config.LoggingConfiguration();
@@ -33,6 +37,7 @@ namespace Sample
             //append NLog
             LoggerManager.Factory.AddNLog(factory);
 
+            //print 2 line
             _logger.Info("------- console & nlog -------");
         }
     }

@@ -1,7 +1,7 @@
 ﻿namespace Es.Logging
 {
     /// <summary>
-    /// Class LoggerManager. This class cannot be inherited.
+    /// 日志记录管理
     /// </summary>
     public sealed class LoggerManager
     {
@@ -10,9 +10,9 @@
 #if NETFULL
 
         /// <summary>
-        /// Gets the current class logger.
+        /// 根据当前类名创建一个日志记录实例
         /// </summary>
-        /// <returns>ILogger.</returns>
+        /// <returns><see cref="ILogger"/></returns>
         [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
         public static ILogger GetCurrentClassLogger() {
 
@@ -23,22 +23,28 @@
 #endif
 
         /// <summary>
-        /// Sets the logger factory.
+        /// 替换全局日志工厂，已创建的日志记录实例会切换到新的日志工厂下
+        /// （新的<see cref="ILoggerFactory"/>需要基于<see cref="LoggerFactory"/>实现才会支持切换功能）
         /// </summary>
-        /// <param name="factory">The factory.</param>
+        /// <param name="factory">需要替换的<see cref="ILoggerFactory"/></param>
         public static void SetLoggerFactory(ILoggerFactory factory) {
 
             if (factory is LoggerFactory) {
-                //transfer logger
+
                 var factoryOld = _factory as LoggerFactory;
                 var factoryNew = factory as LoggerFactory;
 
                 foreach (var entry in factoryOld.Loggers) {
+                    //清空日志聚合的日志记录实例数据
                     entry.Value.Loggers.Clear();
+                    //然后追加新的日志提供者用于创建新的日志记录实例
                     entry.Value.AddProvider(factoryNew.Providers.ToArray());
+
+                    //把旧的日志记录器实例切换到新的上面
                     factoryNew.Loggers.Add(entry.Key, entry.Value);
                 }
 
+                //清理旧的资源
                 factoryOld.Loggers.Clear();
                 factoryOld.Providers.Clear();
                 factoryOld = null;
@@ -48,9 +54,8 @@
         }
 
         /// <summary>
-        /// Gets the factory.
+        /// 提供全局单<see cref="ILoggerFactory"/>实例使用
         /// </summary>
-        /// <value>The factory.</value>
         public static ILoggerFactory Factory
         {
             get
@@ -60,19 +65,19 @@
         }
 
         /// <summary>
-        /// Gets the logger.
+        /// 根据名称创建一个日志记录实例
         /// </summary>
-        /// <param name="name">The name.</param>
-        /// <returns>ILogger.</returns>
+        /// <param name="name">日志名称</param>
+        /// <returns><see cref="ILogger"/></returns>
         public static ILogger GetLogger(string name) {
             return Factory.CreateLogger(name);
         }
 
         /// <summary>
-        /// Gets the logger.
+        /// 根据泛型参数类型创建一个日志记录实例
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <returns>ILogger.</returns>
+        /// <returns><see cref="ILogger"/></returns>
         public static ILogger GetLogger<T>() {
             return Factory.CreateLogger<T>();
         }

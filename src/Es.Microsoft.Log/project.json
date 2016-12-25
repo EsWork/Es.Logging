@@ -1,7 +1,7 @@
 ﻿{
-  "name": "Es.Microsoft.Log",
-  "version": "1.0.2",
-  "title": "Es.Microsoft.Log",
+  "name": "Es.Microsoft.Logging",
+  "version": "1.1.0",
+  "title": "Es.Microsoft.Logging",
   "description": "Support for Microsoft.Extensions.Logging",
   "authors": [ "v.la@live.cn" ],
   "packOptions": {
@@ -21,7 +21,7 @@
     "keyFile": "../Es.snk"
   },
   "dependencies": {
-    "Es.Logging": "1.0.2",
+    "Es.Logging": "1.1.0",
     "Microsoft.Extensions.Logging.Abstractions": "1.1.0-*"
   },
 

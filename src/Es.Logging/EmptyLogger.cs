@@ -3,7 +3,7 @@
 namespace Es.Logging
 {
     /// <summary>
-    /// Used to take
+    /// EmptyLogger
     /// </summary>
     internal class EmptyLogger : ILogger
     {
@@ -15,7 +15,7 @@ namespace Es.Logging
         /// <param name="logLevel"></param>
         /// <returns></returns>
         public bool IsEnabled(LogLevel logLevel) {
-            return true;
+            return false;
         }
 
         /// <summary>

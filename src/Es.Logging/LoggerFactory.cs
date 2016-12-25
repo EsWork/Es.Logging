@@ -3,33 +3,32 @@
 namespace Es.Logging
 {
     /// <summary>
-    /// Logger is based on the factory create instance
+    /// 基于工厂创建日志记录实例
     /// </summary>
     public class LoggerFactory : ILoggerFactory
     {
         private readonly object lockObject = new object();
 
-        /// <summary>
-        /// For different Loggers
-        /// </summary>
+
         internal readonly Dictionary<string, AggregateLogger> Loggers = new Dictionary<string, AggregateLogger>();
 
         /// <summary>
-        /// More than one Provider
+        /// 创建日志记录实例的提供者集合
         /// </summary>
         public readonly List<ILoggerProvider> Providers = new List<ILoggerProvider>
         {
-            new EmptyLoggerProvider()
+            EmptyLoggerProvider.Instance
         };
 
         /// <summary>
-        /// Adds the provider.
+        /// 添加创建日志记录实例的提供者
         /// </summary>
-        /// <param name="providers">The providers.</param>
+        /// <param name="providers">用于创建日志记录实例的提供者</param>
         public void AddProvider(ILoggerProvider[] providers) {
             lock (lockObject) {
                 Providers.AddRange(providers);
-                //When add the provider, will need to update the provider of original logger
+                //添加用于创建日志记录实例的提供者时，将已创建的日志记录集合追加新的日志提供者，
+                //这样我们可以确保每个日志记录实例包含完整多个不同的实现，
                 foreach (var logger in Loggers) {
                     logger.Value.AddProvider(providers);
                 }
@@ -37,10 +36,10 @@ namespace Es.Logging
         }
 
         /// <summary>
-        /// Creates the logger.
+        /// 创建日志记录实例
         /// </summary>
-        /// <param name="name">The name.</param>
-        /// <returns>ILogger.</returns>
+        /// <param name="name">定义日志的名称</param>
+        /// <returns><see cref="ILogger"/></returns>
         public ILogger CreateLogger(string name) {
             AggregateLogger logger;
             if (!Loggers.TryGetValue(name, out logger)) {
