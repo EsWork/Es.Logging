@@ -1,20 +1,19 @@
 language: csharp
-solution: src/Es.Logging.sln
+sudo: required
 dist: trusty
-matrix:
-  include:
-    - dotnet: 1.0.0-preview2-003131
-      mono: none
-      env: DOTNETCORE=1
-    - mono: latest
+addons:
+  apt:
+    packages:
+    - gettext
+    - libcurl4-openssl-dev
+    - libicu-dev
+    - libssl-dev
+    - libunwind8
+    - zlib1g
 addons:
   branches:
     - dev
     # - master
-install:
-  - nuget restore src/Es.Logging.sln
-  - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
-  - xbuild /p:Configuration=Release src/Es.Logging.sln
-  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe "./LoggingTest/bin/Release/LoggingTest.dll.dll"
+  - ./build.sh
   
