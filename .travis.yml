@@ -6,7 +6,7 @@ env: DOTNETCORE=1
 addons:
   branches:
     - dev
-    # - master
+    - master
 before_install:
   - chmod +x build.sh
 script:
