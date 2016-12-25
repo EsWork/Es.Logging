@@ -9,7 +9,7 @@ matrix:
 addons:
   branches:
     - dev
-    - master
+    # - master
 install:
   - nuget restore src/Es.Logging.sln
   - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
