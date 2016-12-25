@@ -1,5 +1,7 @@
 # Es.Logging
 
+[![Build Status](https://travis-ci.org/EsWork/Es.Logging.svg?branch=master)](https://travis-ci.org/EsWork/Es.Logging)
+
 `Es.Logging`抽象出.Net平台的日志通用接口，自身并没有日志处理实现，默认实现了NLog、Log4net、Microsoft.Extensions.Logging和console standard output支持。  
 
 通常日志的实例我们都在构造函数中创建
@@ -37,13 +39,13 @@ Features
 Packages & Status
 ---
 
-Package  | Build status  | NuGet         |
--------- | :------------ | :------------ |
-|**Es.Logging**||[![NuGet package](https://buildstats.info/nuget/Es.Logging)](https://www.nuget.org/packages/Es.Logging)
-|**Es.Logging.Console**||[![NuGet package](https://buildstats.info/nuget/Es.Logging.Console)](https://www.nuget.org/packages/Es.Logging.Console)
-|**Es.Logging.NLog**||[![NuGNuGet packageet](https://buildstats.info/nuget/Es.Logging.NLog)](https://www.nuget.org/packages/Es.Logging.NLog)
-|**Es.Logging.Log4**||[![NuGet package](https://buildstats.info/nuget/Es.Logging.Log4)](https://www.nuget.org/packages/Es.Logging.Log4)
-|**Es.Microsoft.Logging**||[![NuGet package](https://buildstats.info/nuget/Es.Microsoft.Logging)](https://www.nuget.org/packages/Es.Microsoft.Logging)
+Package  | NuGet         |
+-------- | :------------ |
+|**Es.Logging**|[![NuGet package](https://buildstats.info/nuget/Es.Logging)](https://www.nuget.org/packages/Es.Logging)
+|**Es.Logging.Console**|[![NuGet package](https://buildstats.info/nuget/Es.Logging.Console)](https://www.nuget.org/packages/Es.Logging.Console)
+|**Es.Logging.NLog**|[![NuGNuGet packageet](https://buildstats.info/nuget/Es.Logging.NLog)](https://www.nuget.org/packages/Es.Logging.NLog)
+|**Es.Logging.Log4**|[![NuGet package](https://buildstats.info/nuget/Es.Logging.Log4)](https://www.nuget.org/packages/Es.Logging.Log4)
+|**Es.Microsoft.Logging**|[![NuGet package](https://buildstats.info/nuget/Es.Microsoft.Logging)](https://www.nuget.org/packages/Es.Microsoft.Logging)
 
 
 Usage
