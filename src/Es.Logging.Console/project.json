@@ -8,6 +8,7 @@
     "summary": "Easy Work logging for .NET",
     "owners": [ "v.la@live.cn" ],
     "tags": [ "logging", "log", "logger" ],
+    "iconUrl": "http://s.gravatar.com/avatar/28dfa5190889f7190e74b683fc30b827?s=80",
     "projectUrl": "https://github.com/EsWork/Es.Logging",
     "licenseUrl": "https://github.com/EsWork/Es.Logging/blob/master/LICENSE",
     "requireLicenseAcceptance": false,

@@ -7,6 +7,7 @@
   "packOptions": {
     "owners": [ "v.la@live.cn" ],
     "tags": [ "logging", "log", "logger" ],
+    "iconUrl": "http://s.gravatar.com/avatar/28dfa5190889f7190e74b683fc30b827?s=80",
     "projectUrl": "https://github.com/vla/Es.Extensions.Logging.NLog",
     "licenseUrl": "https://github.com/vla/Es.Extensions.Logging.NLog/blob/master/LICENSE",
     "requireLicenseAcceptance": false,
