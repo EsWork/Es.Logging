@@ -13,7 +13,7 @@ namespace Sample
 
         public ConsoleDemo() {
             _logFactory = new LoggerFactory();
-            _logFactory.AddConsole(LogLevel.Trace);
+            _logFactory.AddConsole(LogLevel.Trace,false);
         }
 
         [Demo]

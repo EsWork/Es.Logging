@@ -6,13 +6,16 @@
     public class ConsoleLoggerProvider : ILoggerProvider
     {
         private readonly LogLevel _minLevel;
+        private readonly bool _colorEnable;
 
         /// <summary>
         /// Constructor parameters setup log to register
         /// </summary>
         /// <param name="minLevel">Setting <see cref="LogLevel"/></param>
-        public ConsoleLoggerProvider(LogLevel minLevel) {
+        /// <param name="colorEnable">Whether open font color</param>
+        public ConsoleLoggerProvider(LogLevel minLevel,bool colorEnable = true) {
             _minLevel = minLevel;
+            _colorEnable = colorEnable;
         }
 
         /// <summary>
@@ -21,7 +24,7 @@
         /// <param name="name"></param>
         /// <returns>return <see cref="ConsoleLogger"/> instance</returns>
         public ILogger CreateLogger(string name) {
-            return new ConsoleLogger(name, _minLevel);
+            return new ConsoleLogger(name, _minLevel) { ColorEnable = _colorEnable };
         }
 
         /// <summary>

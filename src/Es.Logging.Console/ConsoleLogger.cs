@@ -33,6 +33,8 @@ namespace Es.Logging
 #endif
         }
 
+        public bool ColorEnable { get; set; } = true;
+
         public bool IsEnabled(LogLevel logLevel) {
             return logLevel >= _minLevel;
         }
@@ -53,7 +55,8 @@ namespace Es.Logging
 
         protected virtual void WriteLine(LogLevel logLevel, string name, string message) {
 
-            var color = GetColor(logLevel);
+            var color = ColorEnable ? GetColor(logLevel) 
+                : new Color(DefaultConsoleColor, DefaultConsoleColor);
             var levelString = GetLevelString(logLevel);
 
             lock (_syncLock) {
@@ -63,7 +66,7 @@ namespace Es.Logging
                     color.Foreground);
 
                 _console.WriteLine(
-                    $":{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")} {name} {message}",
+                    $" {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")} {name} {message}",
                     DefaultConsoleColor, DefaultConsoleColor);
 
                 _console.Flush();
