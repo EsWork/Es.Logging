@@ -1,0 +1,5 @@
+<Project>
+  <PropertyGroup>
+    <CoreFxVersion>4.3.0</CoreFxVersion>
+  </PropertyGroup>
+</Project>
