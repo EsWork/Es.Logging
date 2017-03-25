@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/EsWork/Es.Logging.svg?branch=master)](https://travis-ci.org/EsWork/Es.Logging)
 
-`Es.Logging`抽象出.Net平台的日志通用接口，自身并没有日志处理实现，默认实现了NLog、Log4net、Microsoft.Extensions.Logging和console standard output支持。  
+`Es.Logging`抽象出.Net平台的日志通用接口，自身并没有日志处理实现，默认实现了NLog、Log4net、Microsoft.Extensions.Logging和console standard output支持。
 
 通常日志的实例我们都在构造函数中创建
 
@@ -50,14 +50,14 @@ Package  | NuGet         |
 
 Usage
 ---
-Add dependency in project.json 
+Add dependency in project.json
 ```json
 "dependencies": {
-   "Es.Logging": "1.1.0",
-   "Es.Logging.NLog": "1.1.0",
-   "Es.Logging.Console": "1.1.0",
-   "Es.Microsoft.Logging": "1.1.0",
-   "Es.Microsoft.Log4": "1.1.0",
+   "Es.Logging": "1.1.1",
+   "Es.Logging.NLog": "1.1.1",
+   "Es.Logging.Console": "1.1.",
+   "Es.Microsoft.Logging": "1.1.1",
+   "Es.Microsoft.Log4": "1.1.1",
  }
 ```
 
@@ -100,7 +100,7 @@ public static class Foo{
 
           //add NLog Provider
           _logFactory.AddNLog(factory);
-          
+
           //logger info
           _logger.Info("Es.Logging");
      }
@@ -111,4 +111,4 @@ public static class Foo{
 更多请查看[Sample](https://github.com/EsWork/Es.Logging/tree/master/src/Sample)
 
 ## License
-See [LICENSE](https://github.com/EsWork/Es.Logging/tree/master/LICENSE) for details. 
+See [LICENSE](https://github.com/EsWork/Es.Logging/tree/master/LICENSE) for details.
