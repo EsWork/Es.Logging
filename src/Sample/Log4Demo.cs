@@ -1,13 +1,14 @@
-﻿#if NETFULL
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Es.Logging;
-using log4net.Appender;
 using log4net.Config;
 using log4net.Layout;
+using log4net.Appender;
+using log4net.Repository;
+using log4net;
 
 namespace Sample
 {
@@ -18,8 +19,9 @@ namespace Sample
         public Log4Demo() {
             _logFactory = new LoggerFactory();
 
+            ILoggerRepository repo = LogManager.CreateRepository("Default");
 
-            BasicConfigurator.Configure(new ConsoleAppender
+            BasicConfigurator.Configure(repo, new ConsoleAppender
             {
                 Layout = new PatternLayout(
                 "%date [%thread] %-5level %logger - %message%newline"
@@ -46,4 +48,3 @@ namespace Sample
         }
     }
 }
-#endif

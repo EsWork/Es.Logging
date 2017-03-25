@@ -5,7 +5,7 @@
   <PropertyGroup>
     <AssemblyName>Es.Logging.Log4</AssemblyName>
     <AssemblyTitle>Es.Logging.Log4</AssemblyTitle> 
-    <TargetFrameworks>net40;net45</TargetFrameworks>
+    <TargetFrameworks>netstandard1.3;net40;net45</TargetFrameworks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <PackageId>Es.Logging.Log4</PackageId>
   </PropertyGroup>
@@ -14,20 +14,7 @@
     <ProjectReference Include="..\Es.Logging\Es.Logging.csproj" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net40' ">
-    <PackageReference Include="log4net" Version="2.0.5" />
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
   </ItemGroup>
-
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net40' ">
-    <DefineConstants>$(DefineConstants);NETFULL</DefineConstants>
-  </PropertyGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <PackageReference Include="log4net" Version="2.0.5" />
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
-
 </Project>

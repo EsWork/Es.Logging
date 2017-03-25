@@ -22,10 +22,10 @@
     <ProjectReference Include="..\Es.Logging\Es.Logging.csproj" />
     <ProjectReference Include="..\Es.Logging.Console\Es.Logging.Console.csproj" />
     <ProjectReference Include="..\Es.Logging.NLog\Es.Logging.NLog.csproj" />
+    <ProjectReference Include="..\Es.Logging.Log4\Es.Logging.Log4.csproj" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <ProjectReference Include="..\Es.Logging.Log4\Es.Logging.Log4.csproj" />
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
