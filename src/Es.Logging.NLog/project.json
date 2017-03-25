@@ -18,6 +18,7 @@
     }
   },
   "buildOptions": {
+    "xmlDoc": true,
     "warningsAsErrors": true,
     "keyFile": "../Es.snk"
   },
@@ -32,13 +33,15 @@
       "buildOptions": { "define": [ "NETFULL" ] },
       "dependencies": {
         "NLog": "4.3.11"
-      }
+      },
+      "frameworkAssemblies": {"System.Xml": "4.0.0.0"}
     },
     "net45": {
       "buildOptions": { "define": [ "NETFULL" ] },
       "dependencies": {
         "NLog": "4.3.11"
-      }
+      },
+      "frameworkAssemblies": { "System.Xml": "4.0.0.0" }
     }
   },
   "dependencies": {
