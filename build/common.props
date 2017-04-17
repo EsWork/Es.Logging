@@ -17,8 +17,8 @@
     <Authors>v.la@live.cn</Authors>
     <PackageTags>logging;log;logger</PackageTags>
     <PackageIconUrl>http://s.gravatar.com/avatar/28dfa5190889f7190e74b683fc30b827?s=80</PackageIconUrl>
-    <PackageProjectUrl>https://github.com/vla/Es.Extensions.Logging.NLog</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/vla/Es.Extensions.Logging.NLog/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/EsWork/Es.Logging</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/EsWork/Es.Logging/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
 </Project>
