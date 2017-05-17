@@ -3,7 +3,7 @@
     /// <summary>
     /// 日志记录管理
     /// </summary>
-    [System.Obsolete("下个版本将会取消，请使用Es.Logging.LoggerFactory实例")]
+    [System.Obsolete("请使用Es.Logging.LoggerFactory实例")]
     public sealed class LoggerManager
     {
 
