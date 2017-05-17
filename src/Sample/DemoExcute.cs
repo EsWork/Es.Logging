@@ -73,8 +73,7 @@ public static class DemoExcute
             if (clazz == null) continue;
             foreach (var method in type.GetMethods(BindingFlags.Public | BindingFlags.Instance))
             {
-                var attr = method.GetCustomAttributes(typeof(DemoAttribute), false).FirstOrDefault() as DemoAttribute;
-                if (attr != null)
+                if (method.GetCustomAttributes(typeof(DemoAttribute), false).FirstOrDefault() is DemoAttribute attr)
                 {
                     object instance = Activator.CreateInstance(type);
                     ExecuteFunc func = new ExecuteFunc(instance, method, attr.Description);
@@ -87,7 +86,7 @@ public static class DemoExcute
         {
             StringBuilder text = new StringBuilder();
 
-            lrTag("Select the use-case", "-", 20);
+            LrTag("Select the use-case", "-", 20);
 
             for (int i = 0; i < list.Count; i++)
             {
@@ -106,8 +105,7 @@ public static class DemoExcute
                 {
                     Console.Clear();
                 }
-                int idx;
-                if (int.TryParse(input, out idx))
+                if (int.TryParse(input, out int idx))
                 {
                     if (idx > 0 && idx <= list.Count)
                     {
@@ -118,7 +116,7 @@ public static class DemoExcute
                     }
                 }
                 Console.Out.WriteLine();
-                lrTag("Select the use-case", "-", 20);
+                LrTag("Select the use-case", "-", 20);
                 Console.Out.WriteLine(ConsoleColor.Green, _display);
                 Console.Out.Write("select>");
                 input = Console.ReadLine();
@@ -137,7 +135,7 @@ public static class DemoExcute
     /// <param name="view">The view.</param>
     /// <param name="tag">The tag.</param>
     /// <param name="size">The size.</param>
-    private static void lrTag(string view, string tag, int size)
+    private static void LrTag(string view, string tag, int size)
     {
         StringBuilder sb = new StringBuilder();
 

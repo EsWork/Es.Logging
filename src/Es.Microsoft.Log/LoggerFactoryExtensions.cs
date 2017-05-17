@@ -4,8 +4,8 @@ namespace Es.Logging
 {
     public static class LoggerFactoryExtensions
     {
-        public static ILoggerFactory AddMicrosoftLog(this ILoggerFactory factory,
-            MS.ILoggerFactory logFactory)
+        public static LoggerFactory AddMicrosoftLog(this LoggerFactory factory,
+            MS.LoggerFactory logFactory)
         {
             factory.AddProvider(new LoggerProvider(logFactory));
             return factory;

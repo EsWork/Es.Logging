@@ -12,7 +12,7 @@ namespace Sample
 {
     public class MicrosoftLogDemo
     {
-        private readonly Es.Logging.ILoggerFactory _logFactory;
+        private readonly Es.Logging.LoggerFactory _logFactory;
 
         public MicrosoftLogDemo() {
             _logFactory = new Es.Logging.LoggerFactory();

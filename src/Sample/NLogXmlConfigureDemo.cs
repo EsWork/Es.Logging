@@ -6,7 +6,7 @@ namespace Sample
 {
     public class NLogXmlConfigureDemo
     {
-        private readonly ILoggerFactory _logFactory;
+        private readonly LoggerFactory _logFactory;
 
         public NLogXmlConfigureDemo()
         {

@@ -4,7 +4,7 @@ namespace LoggingTest
 {
     public class StaticLogger
     {
-        private static ILogger _logger = LoggerManager.GetLogger<StaticLogger>();
+        private static ILogger _logger = LoggerFactory.GetLogger<StaticLogger>();
 
         public bool IsEnabled(LogLevel logLevel)
         {

@@ -4,16 +4,13 @@ namespace Sample
 {
     public class LoggerManagerDemo
     {
-        private static ILogger _logger = LoggerManager.GetLogger("LoggerManagerDemo");
+        private static ILogger _logger = LoggerFactory.GetLogger("LoggerManagerDemo");
 
         [Demo]
         public void Aggregate_And_AppendProvider()
         {
-            //Demonstrate clear before
-            LoggerManager.SetLoggerFactory(new LoggerFactory());
-
             //def console
-            LoggerManager.Factory.AddConsole(LogLevel.Trace);
+            LoggerFactory.Factory.AddConsole(LogLevel.Trace);
 
             //print 1 line
             _logger.Info("------- console -------");
@@ -29,7 +26,7 @@ namespace Sample
             var factory = new NLog.LogFactory(config);
 
             //append NLog
-            LoggerManager.Factory.AddNLog(factory);
+            LoggerFactory.Factory.AddNLog(factory);
 
             //print 2 line
             _logger.Info("------- console & nlog -------");

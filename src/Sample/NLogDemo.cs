@@ -8,7 +8,7 @@ namespace Sample
 {
     public class NLogDemo
     {
-        private readonly ILoggerFactory _logFactory;
+        private readonly LoggerFactory _logFactory;
 
         public NLogDemo()
         {

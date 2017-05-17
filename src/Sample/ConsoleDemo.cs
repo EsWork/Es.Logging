@@ -5,7 +5,7 @@ namespace Sample
 {
     public class ConsoleDemo
     {
-        private readonly ILoggerFactory _logFactory;
+        private readonly LoggerFactory _logFactory;
 
         public ConsoleDemo()
         {

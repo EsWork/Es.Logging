@@ -10,7 +10,7 @@ namespace Sample
 {
     public class Log4Demo
     {
-        private readonly ILoggerFactory _logFactory;
+        private readonly LoggerFactory _logFactory;
 
         public Log4Demo()
         {

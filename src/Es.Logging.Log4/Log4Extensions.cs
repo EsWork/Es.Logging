@@ -2,7 +2,7 @@
 {
     public static class Log4Extensions
     {
-        public static ILoggerFactory AddLog4net(this ILoggerFactory factory)
+        public static LoggerFactory AddLog4net(this LoggerFactory factory)
         {
             factory.AddProvider(new Log4LoggerProvider());
             return factory;

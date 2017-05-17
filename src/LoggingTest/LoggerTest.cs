@@ -8,7 +8,7 @@ namespace LoggingTest
         [Fact]
         public void Can_AddProvider_Create_Logger()
         {
-            ILoggerFactory factory = new LoggerFactory();
+            var factory = new LoggerFactory();
 
             var provicer1 = new ConsoleLoggerProvider(LogLevel.Error);
             var provicer2 = new ConsoleLoggerProvider(LogLevel.Debug);
@@ -23,7 +23,7 @@ namespace LoggingTest
         [Fact]
         public void Can_Create_Logger_And_Append_Provider_()
         {
-            ILoggerFactory factory = new LoggerFactory();
+            var factory = new LoggerFactory();
 
             var provicer1 = new ConsoleLoggerProvider(LogLevel.Debug);
 
@@ -39,39 +39,6 @@ namespace LoggingTest
             factory.AddProvider(provicer2);
 
             Assert.True(logger.IsEnabled(LogLevel.Warn));
-        }
-
-        [Fact]
-        public void Can_AppendProvider_And_Update()
-        {
-            LoggerManager.SetLoggerFactory(new LoggerFactory());
-
-            StaticLogger sl = new StaticLogger();
-
-            Assert.False(sl.IsEnabled(LogLevel.Error));
-
-            var provicer1 = new ConsoleLoggerProvider(LogLevel.Trace);
-            LoggerManager.Factory.AddProvider(provicer1);
-
-            Assert.True(sl.IsEnabled(LogLevel.Error));
-        }
-
-        [Fact]
-        public void Can_Replace_LoggerFactory_And_Update()
-        {
-            LoggerManager.SetLoggerFactory(new LoggerFactory());
-
-            StaticLogger sl = new StaticLogger();
-
-            Assert.False(sl.IsEnabled(LogLevel.Error));
-
-            ILoggerFactory factory = new LoggerFactory();
-            var provicer1 = new ConsoleLoggerProvider(LogLevel.Trace);
-            factory.AddProvider(provicer1);
-
-            LoggerManager.SetLoggerFactory(factory);
-
-            Assert.True(sl.IsEnabled(LogLevel.Error));
         }
     }
 }
