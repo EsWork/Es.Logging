@@ -8,7 +8,6 @@
     /// </summary>
     internal class EmptyLoggerProvider : ILoggerProvider
     {
-
         internal static EmptyLoggerProvider Instance = new EmptyLoggerProvider();
 
         /// <summary>
@@ -16,14 +15,16 @@
         /// </summary>
         /// <param name="name">日志名</param>
         /// <returns>返回<see cref="ILogger"/></returns>
-        public ILogger CreateLogger(string name) {
+        public ILogger CreateLogger(string name)
+        {
             return EmptyLogger.Instance;
         }
 
         /// <summary>
         /// nothing
         /// </summary>
-        public void Dispose() {
+        public void Dispose()
+        {
         }
     }
 }

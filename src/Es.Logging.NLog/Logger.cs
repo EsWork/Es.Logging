@@ -7,15 +7,18 @@ namespace Es.Logging
     {
         private NLog.Logger _logger;
 
-        public Logger(NLog.Logger logger) {
+        public Logger(NLog.Logger logger)
+        {
             _logger = logger;
         }
 
-        public bool IsEnabled(LogLevel logLevel) {
+        public bool IsEnabled(LogLevel logLevel)
+        {
             return _logger.IsEnabled(GetLogLevel(logLevel));
         }
 
-        public void Log(LogLevel logLevel, string message, Exception exception) {
+        public void Log(LogLevel logLevel, string message, Exception exception)
+        {
             if (string.IsNullOrEmpty(message) && exception == null)
                 return;
 
@@ -29,8 +32,10 @@ namespace Es.Logging
             _logger.Log(eventInfo);
         }
 
-        private NLog.LogLevel GetLogLevel(LogLevel logLevel) {
-            switch (logLevel) {
+        private NLog.LogLevel GetLogLevel(LogLevel logLevel)
+        {
+            switch (logLevel)
+            {
                 case LogLevel.Trace: return NLog.LogLevel.Trace;
                 case LogLevel.Debug: return NLog.LogLevel.Debug;
                 case LogLevel.Info: return NLog.LogLevel.Info;

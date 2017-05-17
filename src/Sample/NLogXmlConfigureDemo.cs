@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Es.Logging;
 using NLog;
 
@@ -11,7 +8,8 @@ namespace Sample
     {
         private readonly ILoggerFactory _logFactory;
 
-        public NLogXmlConfigureDemo() {
+        public NLogXmlConfigureDemo()
+        {
             _logFactory = new LoggerFactory();
 
             string filename = "";
@@ -24,8 +22,8 @@ namespace Sample
         }
 
         [Demo]
-        public void WriteLog() {
-
+        public void WriteLog()
+        {
             var log = _logFactory.CreateLogger("ConsoleDemo");
 
             log.Trace("Trace....");

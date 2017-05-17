@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Es.Logging;
-
+﻿using Es.Logging;
 
 namespace Sample
 {
     public class LoggerManagerDemo
     {
-        static ILogger _logger = LoggerManager.GetLogger("LoggerManagerDemo");
+        private static ILogger _logger = LoggerManager.GetLogger("LoggerManagerDemo");
 
         [Demo]
-        public void Aggregate_And_AppendProvider() {
-
+        public void Aggregate_And_AppendProvider()
+        {
             //Demonstrate clear before
             LoggerManager.SetLoggerFactory(new LoggerFactory());
 

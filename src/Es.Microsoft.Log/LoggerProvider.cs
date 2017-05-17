@@ -6,15 +6,18 @@ namespace Es.Logging
     {
         private readonly MS.ILoggerFactory _logFactory;
 
-        public LoggerProvider(MS.ILoggerFactory logFactory) {
+        public LoggerProvider(MS.ILoggerFactory logFactory)
+        {
             _logFactory = logFactory;
         }
 
-        public ILogger CreateLogger(string name) {
+        public ILogger CreateLogger(string name)
+        {
             return new Logger(_logFactory.CreateLogger(name));
         }
 
-        public void Dispose() {
+        public void Dispose()
+        {
         }
     }
 }

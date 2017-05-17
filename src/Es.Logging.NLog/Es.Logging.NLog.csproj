@@ -16,11 +16,11 @@
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
-    <PackageReference Include="NLog" Version="5.0.0-*" />
+    <PackageReference Include="NLog" Version="5.0.0-beta07" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net40' ">
-    <PackageReference Include="NLog" Version="4.3.11" />
+    <PackageReference Include="NLog" Version="4.4.9" />
     <Reference Include="System.Xml" />
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
@@ -35,7 +35,7 @@
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <PackageReference Include="NLog" Version="4.3.11" />
+    <PackageReference Include="NLog" Version="4.4.9" />
     <Reference Include="System.Xml" />
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />

@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Es.Logging;
+using log4net;
+using log4net.Appender;
 using log4net.Config;
 using log4net.Layout;
-using log4net.Appender;
 using log4net.Repository;
-using log4net;
 
 namespace Sample
 {
@@ -16,7 +12,8 @@ namespace Sample
     {
         private readonly ILoggerFactory _logFactory;
 
-        public Log4Demo() {
+        public Log4Demo()
+        {
             _logFactory = new LoggerFactory();
 
             ILoggerRepository repo = LogManager.CreateRepository("Default");
@@ -32,7 +29,8 @@ namespace Sample
         }
 
         [Demo]
-        public void WriteLog() {
+        public void WriteLog()
+        {
             var log = _logFactory.CreateLogger("ConsoleDemo");
 
             log.Trace("Trace....");

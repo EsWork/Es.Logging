@@ -9,23 +9,28 @@ namespace Es.Logging
 
         private readonly static Type ThisDeclaringType = typeof(Log4);
 
-        public Log4(ILog log) {
+        public Log4(ILog log)
+        {
             _log = log;
         }
 
-        public bool IsEnabled(LogLevel logLevel) {
+        public bool IsEnabled(LogLevel logLevel)
+        {
             return _log.Logger.IsEnabledFor(GetLogLevel(logLevel));
         }
 
-        public void Log(LogLevel logLevel, string message, Exception exception) {
+        public void Log(LogLevel logLevel, string message, Exception exception)
+        {
             _log.Logger.Log(ThisDeclaringType,
                 GetLogLevel(logLevel),
                 message,
                 exception);
         }
 
-        private log4net.Core.Level GetLogLevel(LogLevel logLevel) {
-            switch (logLevel) {
+        private log4net.Core.Level GetLogLevel(LogLevel logLevel)
+        {
+            switch (logLevel)
+            {
                 case LogLevel.Trace: return log4net.Core.Level.Trace;
                 case LogLevel.Debug: return log4net.Core.Level.Debug;
                 case LogLevel.Info: return log4net.Core.Level.Info;

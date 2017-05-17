@@ -13,27 +13,35 @@ namespace Es.Logging
         //日志记录的集合列表，根据不同Provider创建的日志记录
         private List<ILogger> _loggers = new List<ILogger>();
 
-        public AggregateLogger(ILoggerProvider[] providers, string logName) {
+        public AggregateLogger(ILoggerProvider[] providers, string logName)
+        {
             _logName = logName;
             AddProvider(providers);
         }
 
-        public bool IsEnabled(LogLevel logLevel) {
+        public bool IsEnabled(LogLevel logLevel)
+        {
             List<Exception> exceptions = null;
-            foreach (var logger in _loggers) {
-                try {
-                    if (logger.IsEnabled(logLevel)) {
+            foreach (var logger in _loggers)
+            {
+                try
+                {
+                    if (logger.IsEnabled(logLevel))
+                    {
                         return true;
                     }
                 }
-                catch (Exception ex) {
-                    if (exceptions == null) {
+                catch (Exception ex)
+                {
+                    if (exceptions == null)
+                    {
                         exceptions = new List<Exception>();
                     }
                     exceptions.Add(ex);
                 }
             }
-            if (exceptions != null && exceptions.Count > 0) {
+            if (exceptions != null && exceptions.Count > 0)
+            {
                 throw new AggregateException(
                     message: "An error occurred while writing to logger(s).",
                     innerExceptions: exceptions);
@@ -41,20 +49,26 @@ namespace Es.Logging
             return false;
         }
 
-        public void Log(LogLevel logLevel, string message, Exception exception) {
+        public void Log(LogLevel logLevel, string message, Exception exception)
+        {
             List<Exception> exceptions = null;
-            foreach (var logger in _loggers) {
-                try {
+            foreach (var logger in _loggers)
+            {
+                try
+                {
                     logger.Log(logLevel, message, exception);
                 }
-                catch (Exception ex) {
-                    if (exceptions == null) {
+                catch (Exception ex)
+                {
+                    if (exceptions == null)
+                    {
                         exceptions = new List<Exception>();
                     }
                     exceptions.Add(ex);
                 }
             }
-            if (exceptions != null && exceptions.Count > 0) {
+            if (exceptions != null && exceptions.Count > 0)
+            {
                 throw new AggregateException(
                     message: "An error occurred while writing to logger(s).", innerExceptions: exceptions);
             }
@@ -67,7 +81,8 @@ namespace Es.Logging
         /// 后期可能会追加新的<see cref="ILoggerProvider"/>并且根据日志名创建不同的日志记录方式
         /// </summary>
         /// <param name="providers"></param>
-        internal void AddProvider(ILoggerProvider[] providers) {
+        internal void AddProvider(ILoggerProvider[] providers)
+        {
             foreach (var provider in providers)
                 _loggers.Add(provider.CreateLogger(_logName));
         }

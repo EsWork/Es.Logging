@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Es.Logging;
+﻿using Es.Logging;
 using Xunit;
 
 namespace LoggingTest
@@ -10,7 +6,8 @@ namespace LoggingTest
     public class LoggerTest
     {
         [Fact]
-        public void Can_AddProvider_Create_Logger() {
+        public void Can_AddProvider_Create_Logger()
+        {
             ILoggerFactory factory = new LoggerFactory();
 
             var provicer1 = new ConsoleLoggerProvider(LogLevel.Error);
@@ -24,7 +21,8 @@ namespace LoggingTest
         }
 
         [Fact]
-        public void Can_Create_Logger_And_Append_Provider_() {
+        public void Can_Create_Logger_And_Append_Provider_()
+        {
             ILoggerFactory factory = new LoggerFactory();
 
             var provicer1 = new ConsoleLoggerProvider(LogLevel.Debug);
@@ -44,12 +42,11 @@ namespace LoggingTest
         }
 
         [Fact]
-        public void Can_AppendProvider_And_Update() {
-
+        public void Can_AppendProvider_And_Update()
+        {
             LoggerManager.SetLoggerFactory(new LoggerFactory());
 
             StaticLogger sl = new StaticLogger();
-            
 
             Assert.False(sl.IsEnabled(LogLevel.Error));
 
@@ -60,8 +57,8 @@ namespace LoggingTest
         }
 
         [Fact]
-        public void Can_Replace_LoggerFactory_And_Update() {
-
+        public void Can_Replace_LoggerFactory_And_Update()
+        {
             LoggerManager.SetLoggerFactory(new LoggerFactory());
 
             StaticLogger sl = new StaticLogger();
@@ -71,7 +68,7 @@ namespace LoggingTest
             ILoggerFactory factory = new LoggerFactory();
             var provicer1 = new ConsoleLoggerProvider(LogLevel.Trace);
             factory.AddProvider(provicer1);
-            
+
             LoggerManager.SetLoggerFactory(factory);
 
             Assert.True(sl.IsEnabled(LogLevel.Error));

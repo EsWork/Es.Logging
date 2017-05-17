@@ -34,14 +34,16 @@ public class DemoAttribute : Attribute
     /// <summary>
     /// Initializes a new instance of the <see cref="DemoAttribute"/> class.
     /// </summary>
-    public DemoAttribute() {
+    public DemoAttribute()
+    {
     }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="DemoAttribute"/> class.
     /// </summary>
     /// <param name="description">The description.</param>
-    public DemoAttribute(string description) {
+    public DemoAttribute(string description)
+    {
         Description = description;
     }
 }
@@ -55,7 +57,8 @@ public static class DemoExcute
     /// Excutes the specified test assembly.
     /// </summary>
     /// <param name="t">The t.</param>
-    public static void Excute(Type t) {
+    public static void Excute(Type t)
+    {
 #if NETFULL
         var dataAccess = t.Assembly;
 #else
@@ -64,12 +67,15 @@ public static class DemoExcute
 
         IList<ExecuteFunc> list = new List<ExecuteFunc>();
 
-        foreach (var type in dataAccess.GetTypes()) {
+        foreach (var type in dataAccess.GetTypes())
+        {
             var clazz = type.GetConstructor(Type.EmptyTypes);
             if (clazz == null) continue;
-            foreach (var method in type.GetMethods(BindingFlags.Public | BindingFlags.Instance)) {
+            foreach (var method in type.GetMethods(BindingFlags.Public | BindingFlags.Instance))
+            {
                 var attr = method.GetCustomAttributes(typeof(DemoAttribute), false).FirstOrDefault() as DemoAttribute;
-                if (attr != null) {
+                if (attr != null)
+                {
                     object instance = Activator.CreateInstance(type);
                     ExecuteFunc func = new ExecuteFunc(instance, method, attr.Description);
                     list.Add(func);
@@ -77,12 +83,14 @@ public static class DemoExcute
             }
         }
 
-        if (list.Count > 0) {
+        if (list.Count > 0)
+        {
             StringBuilder text = new StringBuilder();
 
             lrTag("Select the use-case", "-", 20);
 
-            for (int i = 0; i < list.Count; i++) {
+            for (int i = 0; i < list.Count; i++)
+            {
                 text.AppendFormat("[{0}] {1}{2}", i + 1, list[i], Environment.NewLine);
             }
 
@@ -92,13 +100,17 @@ public static class DemoExcute
             Console.Out.WriteLine(ConsoleColor.Green, _display);
             Console.Out.Write("select>");
             string input = Console.ReadLine();
-            while (input != "0" && input != "quit" && input != "q" && input != "exit") {
-                if (input.Equals("cls", StringComparison.OrdinalIgnoreCase)) {
+            while (input != "0" && input != "quit" && input != "q" && input != "exit")
+            {
+                if (input.Equals("cls", StringComparison.OrdinalIgnoreCase))
+                {
                     Console.Clear();
                 }
                 int idx;
-                if (int.TryParse(input, out idx)) {
-                    if (idx > 0 && idx <= list.Count) {
+                if (int.TryParse(input, out idx))
+                {
+                    if (idx > 0 && idx <= list.Count)
+                    {
                         Console.Clear();
                         Console.Out.WriteLine(ConsoleColor.DarkCyan, list[idx - 1] + " Running...");
                         list[idx - 1].Execute();
@@ -125,10 +137,12 @@ public static class DemoExcute
     /// <param name="view">The view.</param>
     /// <param name="tag">The tag.</param>
     /// <param name="size">The size.</param>
-    private static void lrTag(string view, string tag, int size) {
+    private static void lrTag(string view, string tag, int size)
+    {
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++)
+        {
             sb.Append(tag);
         }
 
@@ -145,7 +159,8 @@ public static class DemoExcute
     private static void WriteLine(this TextWriter writer,
         ConsoleColor color,
         string format,
-        params object[] args) {
+        params object[] args)
+    {
         Console.ForegroundColor = color;
         writer.WriteLine(format, args);
         Console.ResetColor();
@@ -168,14 +183,17 @@ public static class DemoExcute
         /// <param name="instance">The instance.</param>
         /// <param name="method">The method.</param>
         /// <param name="description">The description.</param>
-        public ExecuteFunc(object instance, MethodInfo method, string description = "") {
+        public ExecuteFunc(object instance, MethodInfo method, string description = "")
+        {
             _instance = instance;
             _method = method;
 
-            if (string.IsNullOrEmpty(description)) {
+            if (string.IsNullOrEmpty(description))
+            {
                 _description = string.Concat("\t", instance.GetType().FullName, ".", method.Name);
             }
-            else {
+            else
+            {
                 _description = string.Concat("\t", instance.GetType().FullName, "." + method.Name,
                     Environment.NewLine, "\t", description);
             }
@@ -184,7 +202,8 @@ public static class DemoExcute
         /// <summary>
         /// Executes this instance.
         /// </summary>
-        public void Execute() {
+        public void Execute()
+        {
             _method.Invoke(_instance, null);
         }
 
@@ -192,7 +211,8 @@ public static class DemoExcute
         /// Returns a <see cref="System.String" /> that represents this instance.
         /// </summary>
         /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
-        public override string ToString() {
+        public override string ToString()
+        {
             return _description;
         }
     }

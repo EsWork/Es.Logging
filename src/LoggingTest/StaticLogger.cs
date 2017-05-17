@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Es.Logging;
+﻿using Es.Logging;
 
 namespace LoggingTest
 {
@@ -10,7 +6,8 @@ namespace LoggingTest
     {
         private static ILogger _logger = LoggerManager.GetLogger<StaticLogger>();
 
-        public bool IsEnabled(LogLevel logLevel) {
+        public bool IsEnabled(LogLevel logLevel)
+        {
             return _logger.IsEnabled(logLevel);
         }
     }

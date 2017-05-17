@@ -13,7 +13,8 @@ namespace Es.Logging
         /// </summary>
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="message">消息内容</param>
-        public static void Debug(this ILogger logger, string message) {
+        public static void Debug(this ILogger logger, string message)
+        {
             Logger(logger, LogLevel.Debug, message);
         }
 
@@ -23,7 +24,8 @@ namespace Es.Logging
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="format">格式化内容</param>
         /// <param name="args">格式化参数</param>
-        public static void Debug(this ILogger logger, string format, params object[] args) {
+        public static void Debug(this ILogger logger, string format, params object[] args)
+        {
             Logger(logger, LogLevel.Debug, format, args);
         }
 
@@ -32,7 +34,8 @@ namespace Es.Logging
         /// </summary>
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="message">消息内容</param>
-        public static void Trace(this ILogger logger, string message) {
+        public static void Trace(this ILogger logger, string message)
+        {
             Logger(logger, LogLevel.Trace, message);
         }
 
@@ -42,7 +45,8 @@ namespace Es.Logging
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="format">格式化内容</param>
         /// <param name="args">格式化参数</param>
-        public static void Trace(this ILogger logger, string format, params object[] args) {
+        public static void Trace(this ILogger logger, string format, params object[] args)
+        {
             Logger(logger, LogLevel.Trace, format, args);
         }
 
@@ -51,7 +55,8 @@ namespace Es.Logging
         /// </summary>
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="message">消息内容</param>
-        public static void Info(this ILogger logger, string message) {
+        public static void Info(this ILogger logger, string message)
+        {
             Logger(logger, LogLevel.Info, message);
         }
 
@@ -61,7 +66,8 @@ namespace Es.Logging
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="format">格式化内容</param>
         /// <param name="args">格式化参数</param>
-        public static void Info(this ILogger logger, string format, params object[] args) {
+        public static void Info(this ILogger logger, string format, params object[] args)
+        {
             Logger(logger, LogLevel.Info, format, args);
         }
 
@@ -70,7 +76,8 @@ namespace Es.Logging
         /// </summary>
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="message">消息内容</param>
-        public static void Warn(this ILogger logger, string message) {
+        public static void Warn(this ILogger logger, string message)
+        {
             Logger(logger, LogLevel.Warn, message);
         }
 
@@ -80,7 +87,8 @@ namespace Es.Logging
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="format">格式化内容</param>
         /// <param name="args">格式化参数</param>
-        public static void Warn(this ILogger logger, string format, params object[] args) {
+        public static void Warn(this ILogger logger, string format, params object[] args)
+        {
             Logger(logger, LogLevel.Warn, format, args);
         }
 
@@ -90,7 +98,8 @@ namespace Es.Logging
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="message">消息内容</param>
         /// <param name="error">异常信息</param>
-        public static void Warn(this ILogger logger, string message, Exception error) {
+        public static void Warn(this ILogger logger, string message, Exception error)
+        {
             Logger(logger, LogLevel.Warn, message, error);
         }
 
@@ -99,7 +108,8 @@ namespace Es.Logging
         /// </summary>
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="error">异常信息</param>
-        public static void Warn(this ILogger logger, Exception error) {
+        public static void Warn(this ILogger logger, Exception error)
+        {
             Logger(logger, LogLevel.Warn, error.Message, error);
         }
 
@@ -108,7 +118,8 @@ namespace Es.Logging
         /// </summary>
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="message">消息内容</param>
-        public static void Error(this ILogger logger, string message) {
+        public static void Error(this ILogger logger, string message)
+        {
             Logger(logger, LogLevel.Error, message);
         }
 
@@ -118,7 +129,8 @@ namespace Es.Logging
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="format">格式化内容</param>
         /// <param name="args">格式化参数</param>
-        public static void Error(this ILogger logger, string format, params object[] args) {
+        public static void Error(this ILogger logger, string format, params object[] args)
+        {
             Logger(logger, LogLevel.Error, format, args);
         }
 
@@ -128,7 +140,8 @@ namespace Es.Logging
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="message">消息内容</param>
         /// <param name="error">异常信息</param>
-        public static void Error(this ILogger logger, string message, Exception error) {
+        public static void Error(this ILogger logger, string message, Exception error)
+        {
             Logger(logger, LogLevel.Error, message, error);
         }
 
@@ -137,7 +150,8 @@ namespace Es.Logging
         /// </summary>
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="error">异常信息</param>
-        public static void Error(this ILogger logger, Exception error) {
+        public static void Error(this ILogger logger, Exception error)
+        {
             Logger(logger, LogLevel.Error, error.Message, error);
         }
 
@@ -146,7 +160,8 @@ namespace Es.Logging
         /// </summary>
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="message">消息内容</param>
-        public static void Fatal(this ILogger logger, string message) {
+        public static void Fatal(this ILogger logger, string message)
+        {
             Logger(logger, LogLevel.Fatal, message);
         }
 
@@ -156,7 +171,8 @@ namespace Es.Logging
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="format">格式化内容</param>
         /// <param name="args">格式化参数</param>
-        public static void Fatal(this ILogger logger, string format, params object[] args) {
+        public static void Fatal(this ILogger logger, string format, params object[] args)
+        {
             Logger(logger, LogLevel.Fatal, format, args);
         }
 
@@ -166,7 +182,8 @@ namespace Es.Logging
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="message">消息内容</param>
         /// <param name="error">异常信息</param>
-        public static void Fatal(this ILogger logger, string message, Exception error) {
+        public static void Fatal(this ILogger logger, string message, Exception error)
+        {
             Logger(logger, LogLevel.Fatal, message, error);
         }
 
@@ -175,7 +192,8 @@ namespace Es.Logging
         /// </summary>
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="error">异常信息</param>
-        public static void Fatal(this ILogger logger, Exception error) {
+        public static void Fatal(this ILogger logger, Exception error)
+        {
             Logger(logger, LogLevel.Fatal, error.Message, error);
         }
 
@@ -185,7 +203,8 @@ namespace Es.Logging
         /// <param name="logger"><see cref="ILogger"/></param>
         /// <param name="logLevel">日志级别</param>
         /// <param name="message">消息内容</param>
-        private static void Logger(ILogger logger, LogLevel logLevel, string message) {
+        private static void Logger(ILogger logger, LogLevel logLevel, string message)
+        {
             logger.Log(logLevel, message, null);
         }
 
@@ -196,7 +215,8 @@ namespace Es.Logging
         /// <param name="logLevel">日志级别</param>
         /// <param name="format">格式化内容</param>
         /// <param name="args">格式化参数</param>
-        private static void Logger(ILogger logger, LogLevel logLevel, string format, params object[] args) {
+        private static void Logger(ILogger logger, LogLevel logLevel, string format, params object[] args)
+        {
             logger.Log(logLevel,
                 string.Format(CultureInfo.InvariantCulture, format, args), null);
         }
@@ -208,7 +228,8 @@ namespace Es.Logging
         /// <param name="logLevel">日志级别</param>
         /// <param name="message">消息内容</param>
         /// <param name="error">异常信息</param>
-        private static void Logger(ILogger logger, LogLevel logLevel, string message, Exception error) {
+        private static void Logger(ILogger logger, LogLevel logLevel, string message, Exception error)
+        {
             logger.Log(logLevel, message, error);
         }
     }

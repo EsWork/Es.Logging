@@ -6,7 +6,6 @@ namespace Es.Logging
 {
     internal class ConsoleLogger : ILogger
     {
-
         private readonly IConsole _console;
 
         private readonly string _name;
@@ -17,15 +16,18 @@ namespace Es.Logging
 
         private readonly ConsoleColor? DefaultConsoleColor = null;
 
-        public ConsoleLogger(string name, LogLevel minLevel) {
+        public ConsoleLogger(string name, LogLevel minLevel)
+        {
             _name = name;
             _minLevel = minLevel;
 
 #if !NET40 && !NET45
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
                 _console = new WindowsLogConsole();
             }
-            else {
+            else
+            {
                 _console = new UnixLogConsole();
             }
 #else
@@ -35,12 +37,15 @@ namespace Es.Logging
 
         public bool ColorEnable { get; set; } = true;
 
-        public bool IsEnabled(LogLevel logLevel) {
+        public bool IsEnabled(LogLevel logLevel)
+        {
             return logLevel >= _minLevel;
         }
 
-        public void Log(LogLevel logLevel, string message, Exception exception) {
-            if (!IsEnabled(logLevel)) {
+        public void Log(LogLevel logLevel, string message, Exception exception)
+        {
+            if (!IsEnabled(logLevel))
+            {
                 return;
             }
 
@@ -52,14 +57,14 @@ namespace Es.Logging
             WriteLine(logLevel, _name, message);
         }
 
-
-        protected virtual void WriteLine(LogLevel logLevel, string name, string message) {
-
-            var color = ColorEnable ? GetColor(logLevel) 
+        protected virtual void WriteLine(LogLevel logLevel, string name, string message)
+        {
+            var color = ColorEnable ? GetColor(logLevel)
                 : new Color(DefaultConsoleColor, DefaultConsoleColor);
             var levelString = GetLevelString(logLevel);
 
-            lock (_syncLock) {
+            lock (_syncLock)
+            {
                 _console.Write(
                     $"{levelString.PadLeft(5, ' ')}",
                     color.Background,
@@ -73,8 +78,10 @@ namespace Es.Logging
             }
         }
 
-        private static string GetLevelString(LogLevel logLevel) {
-            switch (logLevel) {
+        private static string GetLevelString(LogLevel logLevel)
+        {
+            switch (logLevel)
+            {
                 case LogLevel.Trace:
                     return "TRACE";
 
@@ -98,8 +105,10 @@ namespace Es.Logging
             }
         }
 
-        private Color GetColor(LogLevel logLevel) {
-            switch (logLevel) {
+        private Color GetColor(LogLevel logLevel)
+        {
+            switch (logLevel)
+            {
                 case LogLevel.Fatal:
                     return new Color(ConsoleColor.White, ConsoleColor.Red);
 
@@ -125,7 +134,8 @@ namespace Es.Logging
 
         private struct Color
         {
-            public Color(ConsoleColor? foreground, ConsoleColor? background) {
+            public Color(ConsoleColor? foreground, ConsoleColor? background)
+            {
                 Foreground = foreground;
                 Background = background;
             }
@@ -135,16 +145,20 @@ namespace Es.Logging
             public ConsoleColor? Background { get; }
         }
 
-        private static string Formatter(string message, Exception error) {
-            if (message == null && error == null) {
+        private static string Formatter(string message, Exception error)
+        {
+            if (message == null && error == null)
+            {
                 throw new InvalidOperationException("Not found the message or exception information to create a log message.");
             }
 
-            if (message == null) {
+            if (message == null)
+            {
                 return error.ToString();
             }
 
-            if (error == null) {
+            if (error == null)
+            {
                 return message;
             }
 

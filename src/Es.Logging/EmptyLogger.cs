@@ -14,7 +14,8 @@ namespace Es.Logging
         /// </summary>
         /// <param name="logLevel"></param>
         /// <returns></returns>
-        public bool IsEnabled(LogLevel logLevel) {
+        public bool IsEnabled(LogLevel logLevel)
+        {
             return false;
         }
 
@@ -24,7 +25,8 @@ namespace Es.Logging
         /// <param name="logLevel"></param>
         /// <param name="message"></param>
         /// <param name="exception"></param>
-        public void Log(LogLevel logLevel, string message, Exception exception) {
+        public void Log(LogLevel logLevel, string message, Exception exception)
+        {
         }
     }
 }

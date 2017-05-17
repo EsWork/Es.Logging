@@ -10,38 +10,47 @@ namespace Es.Logging
         private const string BACKGROUND = "\x1B[39m\x1B[22m";
         private const string FOREGROUND = "\x1B[49m";
 
-        public void Flush() {
+        public void Flush()
+        {
             Console.Write(_messageBuilder.ToString());
             _messageBuilder.Clear();
         }
 
-        public void Write(string logMessage, ConsoleColor? background, ConsoleColor? foreground) {
-            if (background.HasValue) {
+        public void Write(string logMessage, ConsoleColor? background, ConsoleColor? foreground)
+        {
+            if (background.HasValue)
+            {
                 _messageBuilder.Append(GetBackgroundColor(background.Value));
             }
 
-            if (foreground.HasValue) {
+            if (foreground.HasValue)
+            {
                 _messageBuilder.Append(GetForegroundColor(foreground.Value));
             }
 
             _messageBuilder.Append(logMessage);
 
-            if (foreground.HasValue) {
+            if (foreground.HasValue)
+            {
                 _messageBuilder.Append(BACKGROUND);
             }
 
-            if (background.HasValue) {
+            if (background.HasValue)
+            {
                 _messageBuilder.Append(FOREGROUND);
             }
         }
 
-        public void WriteLine(string logMessage, ConsoleColor? background, ConsoleColor? foreground) {
+        public void WriteLine(string logMessage, ConsoleColor? background, ConsoleColor? foreground)
+        {
             Write(logMessage, background, foreground);
             _messageBuilder.AppendLine();
         }
 
-        private static string GetForegroundColor(ConsoleColor color) {
-            switch (color) {
+        private static string GetForegroundColor(ConsoleColor color)
+        {
+            switch (color)
+            {
                 case ConsoleColor.Black:
                     return "\x1B[30m";
 
@@ -92,8 +101,10 @@ namespace Es.Logging
             }
         }
 
-        private static string GetBackgroundColor(ConsoleColor color) {
-            switch (color) {
+        private static string GetBackgroundColor(ConsoleColor color)
+        {
+            switch (color)
+            {
                 case ConsoleColor.Black:
                     return "\x1B[40m";
 

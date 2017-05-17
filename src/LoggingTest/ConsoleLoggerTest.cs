@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Es.Logging;
+﻿using Es.Logging;
 using Xunit;
 
 namespace LoggingTest
@@ -12,7 +6,8 @@ namespace LoggingTest
     public class ConsoleLoggerTest
     {
         [Fact]
-        public void Create_ConsoleProvider_With_Level() {
+        public void Create_ConsoleProvider_With_Level()
+        {
             var provider = new ConsoleLoggerProvider(LogLevel.Debug);
 
             var logger = provider.CreateLogger(this.GetType().FullName);
