@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Globalization;
+#if NETSTANDARD
 using System.Runtime.InteropServices;
-
+#endif
 namespace Es.Logging
 {
     internal class ConsoleLogger : ILogger
@@ -12,9 +13,9 @@ namespace Es.Logging
 
         private readonly LogLevel _minLevel;
 
-        private readonly object _syncLock = new object();
-
         private readonly ConsoleColor? DefaultConsoleColor = null;
+
+        private readonly OutPutQueue _outPutQueue;
 
         public ConsoleLogger(string name, LogLevel minLevel)
         {
@@ -33,6 +34,10 @@ namespace Es.Logging
 #else
             _console = new WindowsLogConsole();
 #endif
+            _outPutQueue = new OutPutQueue()
+            {
+                Console = _console
+            };
         }
 
         public bool ColorEnable { get; set; } = true;
@@ -63,19 +68,13 @@ namespace Es.Logging
                 : new Color(DefaultConsoleColor, DefaultConsoleColor);
             var levelString = GetLevelString(logLevel);
 
-            lock (_syncLock)
+            _outPutQueue.EnqueueMessage(new LogMessage
             {
-                _console.Write(
-                    $"{levelString.PadLeft(5, ' ')}",
-                    color.Background,
-                    color.Foreground);
+                Message = $"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")} {levelString} {name} {message}",
+                Background = color.Background,
+                Foreground = color.Foreground
+            });
 
-                _console.WriteLine(
-                    $" {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")} {name} {message}",
-                    DefaultConsoleColor, DefaultConsoleColor);
-
-                _console.Flush();
-            }
         }
 
         private static string GetLevelString(LogLevel logLevel)
@@ -83,22 +82,22 @@ namespace Es.Logging
             switch (logLevel)
             {
                 case LogLevel.Trace:
-                    return "TRACE";
+                    return "trace";
 
                 case LogLevel.Debug:
-                    return "DEBUG";
+                    return "debug";
 
                 case LogLevel.Info:
-                    return "INFO";
+                    return "info";
 
                 case LogLevel.Warn:
-                    return "WARN";
+                    return "warn";
 
                 case LogLevel.Error:
-                    return "ERROR";
+                    return "error";
 
                 case LogLevel.Fatal:
-                    return "FATAL";
+                    return "fatal";
 
                 default:
                     throw new ArgumentOutOfRangeException(nameof(logLevel));
@@ -110,16 +109,16 @@ namespace Es.Logging
             switch (logLevel)
             {
                 case LogLevel.Fatal:
-                    return new Color(ConsoleColor.White, ConsoleColor.Red);
+                    return new Color(ConsoleColor.Magenta, ConsoleColor.Black);
 
                 case LogLevel.Error:
-                    return new Color(ConsoleColor.Black, ConsoleColor.Red);
+                    return new Color(ConsoleColor.Red, ConsoleColor.Black);
 
                 case LogLevel.Warn:
                     return new Color(ConsoleColor.Yellow, ConsoleColor.Black);
 
                 case LogLevel.Info:
-                    return new Color(ConsoleColor.DarkGreen, ConsoleColor.Black);
+                    return new Color(ConsoleColor.White, ConsoleColor.Black);
 
                 case LogLevel.Trace:
                     return new Color(ConsoleColor.Gray, ConsoleColor.Black);
@@ -128,7 +127,7 @@ namespace Es.Logging
                     return new Color(ConsoleColor.Gray, ConsoleColor.Black);
 
                 default:
-                    return new Color(ConsoleColor.White, ConsoleColor.Red);
+                    return new Color(ConsoleColor.White, ConsoleColor.Black);
             }
         }
 

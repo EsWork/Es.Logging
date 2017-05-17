@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using Es.Logging;
 
 namespace Sample
@@ -10,7 +11,7 @@ namespace Sample
         public ConsoleDemo()
         {
             _logFactory = new LoggerFactory();
-            _logFactory.AddConsole(LogLevel.Trace, false);
+            _logFactory.AddConsole(LogLevel.Trace, true);
         }
 
         [Demo]
@@ -18,16 +19,22 @@ namespace Sample
         {
             var log = _logFactory.CreateLogger("ConsoleDemo");
 
-            log.Trace("Trace....");
-            log.Debug("Debug...");
-            log.Info("Information....");
-            log.Error("Error...");
-            log.Warn("Warning...");
-            log.Fatal("Fatal...");
+            for (int i = 0; i < 100; i++)
+            {
+                log.Trace("Trace....");
+                log.Debug("Debug...");
+                log.Info("Information....");
+                log.Error("Error...");
+                log.Warn("Warning...");
+                log.Fatal("Fatal...");
 
-            var exception = new InvalidOperationException("Invalid value");
 
-            log.Error(exception);
+                var exception = new InvalidOperationException("Invalid value");
+
+                log.Error(exception);
+            }
+
+            Thread.Sleep(2000);
         }
     }
 }
