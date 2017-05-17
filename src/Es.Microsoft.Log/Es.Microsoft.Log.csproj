@@ -7,7 +7,7 @@
     <TargetFrameworks>netstandard1.3;</TargetFrameworks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <DebugType>portable</DebugType>
-    <PackageId>Es.Microsoft.Log</PackageId>
+    <PackageId>Es.Microsoft.Logging</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
