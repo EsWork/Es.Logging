@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Es.Logging;
 using NLog;
 using NLog.Config;
@@ -43,5 +45,7 @@ namespace Sample
 
             log.Error(exception);
         }
+
+ 
     }
 }
