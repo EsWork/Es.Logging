@@ -50,16 +50,6 @@ Package  | NuGet         |
 
 Usage
 ---
-Add dependency in project.json
-```json
-"dependencies": {
-   "Es.Logging": "1.1.1",
-   "Es.Logging.NLog": "1.1.1",
-   "Es.Logging.Console": "1.1.",
-   "Es.Microsoft.Logging": "1.1.1",
-   "Es.Microsoft.Log4": "1.1.1",
- }
-```
 
  标准控制台输出
 
