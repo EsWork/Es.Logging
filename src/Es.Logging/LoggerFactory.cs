@@ -12,9 +12,9 @@ namespace Es.Logging
         internal readonly Dictionary<string, AggregateLogger> Loggers = new Dictionary<string, AggregateLogger>();
 
         /// <summary>
-        /// <see cref="LoggerFactory"/>
+        /// Default Factory
         /// </summary>
-        public readonly static LoggerFactory Factory = new LoggerFactory();
+        public readonly static ILoggerFactory Factory = new LoggerFactory();
 
         /// <summary>
         /// 创建日志记录实例的提供者集合
