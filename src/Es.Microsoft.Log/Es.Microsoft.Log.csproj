@@ -4,7 +4,7 @@
     <Description>Support for Microsoft.Extensions.Logging</Description>
     <AssemblyName>Es.Microsoft.Logging</AssemblyName>
     <AssemblyTitle>Es.Microsoft.Logging</AssemblyTitle>
-    <TargetFrameworks>netstandard1.3;</TargetFrameworks>
+    <TargetFrameworks>netstandard1.3;netstandard2.0;</TargetFrameworks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <DebugType>portable</DebugType>
     <PackageId>Es.Microsoft.Logging</PackageId>
@@ -14,8 +14,11 @@
     <ProjectReference Include="..\Es.Logging\Es.Logging.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
     <PackageReference Include="Microsoft.Extensions.Logging" Version="1.1.2" />
   </ItemGroup>
 
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.0.0" />
+  </ItemGroup>
 </Project>

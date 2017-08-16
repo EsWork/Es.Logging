@@ -64,7 +64,7 @@ namespace Es.Logging
         }
 
 
-#if NETFULL
+#if NETFULL || NETSTANDARD2_0
 
         /// <summary>
         /// 根据当前类名创建一个日志记录实例
