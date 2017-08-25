@@ -45,6 +45,7 @@ Package  | NuGet         |
 |**Es.Logging.Console**|[![NuGet package](https://buildstats.info/nuget/Es.Logging.Console)](https://www.nuget.org/packages/Es.Logging.Console)
 |**Es.Logging.NLog**|[![NuGNuGet packageet](https://buildstats.info/nuget/Es.Logging.NLog)](https://www.nuget.org/packages/Es.Logging.NLog)
 |**Es.Logging.Log4**|[![NuGet package](https://buildstats.info/nuget/Es.Logging.Log4)](https://www.nuget.org/packages/Es.Logging.Log4)
+|**Es.Logging.Serilog**|[![NuGet package](https://buildstats.info/nuget/Es.Logging.Serilog)](https://www.nuget.org/packages/Es.Logging.Serilog)
 |**Es.Microsoft.Logging**|[![NuGet package](https://buildstats.info/nuget/Es.Microsoft.Logging)](https://www.nuget.org/packages/Es.Microsoft.Logging)
 
 
