@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggingTest", "LoggingTest\LoggingTest.csproj", "{0EB4AFB5-5092-4847-A5FE-5C446A86C0A6}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample", "Sample\Sample.csproj", "{3DB520C9-4CF1-4ED7-B513-5620187459AE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Es.Microsoft.Log", "Es.Microsoft.Log\Es.Microsoft.Log.csproj", "{1B2359A5-08A0-4069-8844-AAD89D8ECE35}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Es.Logging.Serilog", "Es.Logging.Serilog\Es.Logging.Serilog.csproj", "{BF797E7E-761C-4963-ADC6-ACF51A5169A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{1B2359A5-08A0-4069-8844-AAD89D8ECE35}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B2359A5-08A0-4069-8844-AAD89D8ECE35}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B2359A5-08A0-4069-8844-AAD89D8ECE35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF797E7E-761C-4963-ADC6-ACF51A5169A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF797E7E-761C-4963-ADC6-ACF51A5169A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF797E7E-761C-4963-ADC6-ACF51A5169A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF797E7E-761C-4963-ADC6-ACF51A5169A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
