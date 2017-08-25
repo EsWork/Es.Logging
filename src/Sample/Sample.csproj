@@ -24,12 +24,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Serilog.Sinks.Literate" Version="3.0.0" />
+    <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="NLog.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Es.Logging.Serilog\Es.Logging.Serilog.csproj" />
     <ProjectReference Include="..\Es.Logging\Es.Logging.csproj" />
     <ProjectReference Include="..\Es.Logging.Console\Es.Logging.Console.csproj" />
     <ProjectReference Include="..\Es.Logging.NLog\Es.Logging.NLog.csproj" />
