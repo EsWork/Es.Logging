@@ -32,6 +32,7 @@ Features
 - 支持`Unix`&`Windows`控制台输出
 - 支持`NLog`
 - 支持`Log4net`
+- 支持`Serilog`
 - 支持`Microsoft.Extensions.Logging`
 
 
