@@ -19,6 +19,9 @@ namespace Es.Logging
 
         public void Log(LogLevel logLevel, string message, Exception exception)
         {
+            if (!IsEnabled(logLevel))
+                return;
+
             if (string.IsNullOrEmpty(message) && exception == null)
                 return;
 

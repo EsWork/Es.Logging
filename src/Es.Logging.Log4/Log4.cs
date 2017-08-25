@@ -21,6 +21,9 @@ namespace Es.Logging
 
         public void Log(LogLevel logLevel, string message, Exception exception)
         {
+            if (!IsEnabled(logLevel))
+                return;
+
             _log.Logger.Log(ThisDeclaringType,
                 GetLogLevel(logLevel),
                 message,
