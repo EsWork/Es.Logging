@@ -25,6 +25,7 @@ call dotnet build src/Es.Logging -f net45 -c Release -o %artifacts%\net45
 call dotnet build src/Es.Logging.Console -f net45 -c Release -o %artifacts%\net45
 call dotnet build src/Es.Logging.NLog -f net45 -c Release -o %artifacts%\net45
 call dotnet build src/Es.Logging.Log4 -f net45 -c Release -o %artifacts%\net45
+call dotnet build src/Es.Logging.Serilog -f net45 -c Release -o %artifacts%\net45
 
 call dotnet pack src/Es.Logging -c release -o %artifacts%
 call dotnet pack src/Es.Logging.Console -c release -o %artifacts%

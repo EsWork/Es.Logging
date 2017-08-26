@@ -4,7 +4,7 @@
     <Description>Support for Serilog</Description>
     <AssemblyName>Es.Logging.Serilog</AssemblyName>
     <AssemblyTitle>Es.Logging.Serilog</AssemblyTitle>
-    <TargetFrameworks>netstandard1.3;netstandard2.0;</TargetFrameworks>
+    <TargetFrameworks>netstandard1.3;netstandard2.0;net45</TargetFrameworks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <DebugType>portable</DebugType>
     <PackageId>Es.Logging.Serilog</PackageId>
