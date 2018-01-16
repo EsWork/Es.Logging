@@ -5,7 +5,7 @@
   <PropertyGroup>
     <AssemblyName>Es.Logging.NLog</AssemblyName>
     <AssemblyTitle>Es.Logging.NLog</AssemblyTitle>
-    <TargetFrameworks>netstandard1.3;netstandard2.0;net40;net45</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net40;net45</TargetFrameworks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageId>Es.Logging.NLog</PackageId>
@@ -15,8 +15,8 @@
     <ProjectReference Include="..\Es.Logging\Es.Logging.csproj" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' OR '$(TargetFramework)' == 'netstandard2.0' ">
-    <PackageReference Include="NLog" Version="5.0.0-beta11" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' ">
+    <PackageReference Include="NLog" Version="4.5.0-rc04" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net40' OR '$(TargetFramework)' == 'net45' ">
