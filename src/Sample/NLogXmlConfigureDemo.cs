@@ -14,12 +14,8 @@ namespace Sample
         {
             _logFactory = new LoggerFactory();
 
-            string filename = "";
-#if NETFULL
-            filename = AppDomain.CurrentDomain.BaseDirectory + "NLog.xml";
-#else
-            filename = AppContext.BaseDirectory + "/NLog.xml";
-#endif
+            string filename = AppContext.BaseDirectory + "/NLog.xml";
+
             _logFactory.AddNLog(filename);
         }
 

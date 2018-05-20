@@ -22,11 +22,9 @@ namespace Sample
         {
             var loggerName = "Default";
 
-            LogEventPropertyValue sourceContext;
-            if (logEvent.Properties.TryGetValue(Constants.SourceContextPropertyName, out sourceContext))
+            if (logEvent.Properties.TryGetValue(Constants.SourceContextPropertyName, out LogEventPropertyValue sourceContext))
             {
-                var sv = sourceContext as ScalarValue;
-                if (sv != null && sv.Value is string)
+                if (sourceContext is ScalarValue sv && sv.Value is string)
                 {
                     loggerName = (string)sv.Value;
                 }

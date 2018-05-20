@@ -169,11 +169,11 @@ public static class DemoExcute
     /// </summary>
     private class ExecuteFunc
     {
-        private object _instance;
+        private readonly object _instance;
 
         private MethodInfo _method;
 
-        private string _description;
+        private readonly string _description;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ExecuteFunc"/> class.
