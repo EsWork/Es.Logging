@@ -10,9 +10,6 @@ namespace Es.Logging
     {
         private readonly string _logName;
 
-        //日志记录的集合列表，根据不同Provider创建的日志记录
-        private List<ILogger> _loggers = new List<ILogger>();
-
         public AggregateLogger(ILoggerProvider[] providers, string logName)
         {
             _logName = logName;
@@ -22,7 +19,7 @@ namespace Es.Logging
         public bool IsEnabled(LogLevel logLevel)
         {
             List<Exception> exceptions = null;
-            foreach (var logger in _loggers)
+            foreach (var logger in Loggers)
             {
                 try
                 {
@@ -52,7 +49,7 @@ namespace Es.Logging
         public void Log(LogLevel logLevel, string message, Exception exception)
         {
             List<Exception> exceptions = null;
-            foreach (var logger in _loggers)
+            foreach (var logger in Loggers)
             {
                 try
                 {
@@ -74,7 +71,7 @@ namespace Es.Logging
             }
         }
 
-        internal List<ILogger> Loggers { get { return _loggers; } }
+        internal List<ILogger> Loggers { get; } = new List<ILogger>();
 
         /// <summary>
         /// 添加新的日志记录，如果当前日志记录器已经创建，
@@ -84,7 +81,7 @@ namespace Es.Logging
         internal void AddProvider(ILoggerProvider[] providers)
         {
             foreach (var provider in providers)
-                _loggers.Add(provider.CreateLogger(_logName));
+                Loggers.Add(provider.CreateLogger(_logName));
         }
     }
 }
