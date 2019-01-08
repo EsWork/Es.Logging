@@ -2,7 +2,7 @@
   <Import Project="dependencies.props" />
   <Import Project="version.props" />
 
-  <PropertyGroup>
+  <PropertyGroup> 
     <Description>Simple and easy to use the log class library package</Description>
     <Product>EsWork Logging Library</Product>
     <RepositoryType>git</RepositoryType>
@@ -14,7 +14,8 @@
     <SignAssembly>true</SignAssembly>
     <PublicSign Condition="'$(OS)' != 'Windows_NT'">true</PublicSign>
 
-    <Authors>v.la@live.cn</Authors>
+    <Copyright>2019 EsWork, Inc.</Copyright>
+    <Authors>EsWork;v.la@live.cn</Authors>
     <PackageTags>logging;log;logger</PackageTags>
     <PackageIconUrl>http://s.gravatar.com/avatar/28dfa5190889f7190e74b683fc30b827?s=80</PackageIconUrl>
     <PackageProjectUrl>https://github.com/EsWork/Es.Logging</PackageProjectUrl>
