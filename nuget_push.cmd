@@ -7,3 +7,5 @@ dotnet nuget push artifacts/Es.Logging.NLog.%ver%.nupkg %sourceUrl%
 dotnet nuget push artifacts/Es.Logging.Log4.%ver%.nupkg %sourceUrl%
 dotnet nuget push artifacts/Es.Logging.Serilog.%ver%.nupkg %sourceUrl%
 dotnet nuget push artifacts/Es.Microsoft.Logging.%ver%.nupkg %sourceUrl%
+
+pause

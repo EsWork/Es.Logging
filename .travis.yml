@@ -5,6 +5,7 @@ dist: xenial
 dotnet: 3.0
 addons:
   branches:
+    - dev
     - master
 script:
   - dotnet restore src/LoggingTest
