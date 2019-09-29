@@ -1,13 +1,11 @@
 language: csharp
+mono: none
 sudo: required
-dist: trusty
-dotnet: 2.0.0
-env: DOTNETCORE=1
+dist: xenial
+dotnet: 3.0
 addons:
   branches:
-    - dev
     - master
-before_install:
-  - chmod +x build.sh
 script:
-  - ./build.sh
+  - dotnet restore src/LoggingTest
+  - dotnet test src/LoggingTest -f netcoreapp3.0

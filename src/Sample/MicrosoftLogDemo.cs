@@ -16,11 +16,12 @@ namespace Sample
         public MicrosoftLogDemo() {
             _logFactory = new Es.Logging.LoggerFactory();
 
-            var msLogFactory = new Microsoft.Extensions.Logging.LoggerFactory();
+            var logFactory = Microsoft.Extensions.Logging.LoggerFactory.Create(builder =>
+            {
+                builder .AddConsole();
+            });
 
-            msLogFactory.AddConsole(Microsoft.Extensions.Logging.LogLevel.Debug);
-
-            _logFactory.AddMicrosoftLog(msLogFactory);
+            _logFactory.AddMicrosoftLog(logFactory);
         }
 
         [Demo]
