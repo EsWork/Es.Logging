@@ -7,7 +7,7 @@ namespace Es.Logging
 {
     internal class ConsoleLogger : ILogger
     {
-        private readonly IConsole _console;
+        private static readonly IConsole _console;
 
         private readonly string _name;
 
@@ -15,13 +15,10 @@ namespace Es.Logging
 
         private readonly ConsoleColor? DefaultConsoleColor = null;
 
-        private readonly OutPutQueue _outPutQueue;
+        private static readonly OutPutQueue _outPutQueue;
 
-        public ConsoleLogger(string name, LogLevel minLevel)
+        static ConsoleLogger()
         {
-            _name = name;
-            _minLevel = minLevel;
-
 #if !NETFULL
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
@@ -34,10 +31,17 @@ namespace Es.Logging
 #else
             _console = new WindowsLogConsole();
 #endif
+
             _outPutQueue = new OutPutQueue()
             {
                 Console = _console
             };
+        }
+
+        public ConsoleLogger(string name, LogLevel minLevel)
+        {
+            _name = name;
+            _minLevel = minLevel;
         }
 
         public bool ColorEnable { get; set; } = true;
