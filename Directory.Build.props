@@ -1,0 +1,42 @@
+<Project>
+
+  <PropertyGroup>
+    <Version>$(Ver)</Version>
+    <PackageVersion>$(Ver)</PackageVersion>
+    <Authors>v.la@live.cn</Authors>
+    <Description>Simple and easy to use the log class library package</Description>
+    <Product>EsWork Logging Library</Product>
+    <Copyright>2019 EsWork, Inc.</Copyright>
+    <Authors>EsWork;v.la@live.cn</Authors>
+
+    <PackageOutputPath>$(MSBuildThisFileDirectory)/artifacts</PackageOutputPath>
+    <PackageTags>logging;log;logger</PackageTags>
+    <LangVersion>latest</LangVersion>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/EsWork/Es.Logging</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageLicenseType>MIT</PackageLicenseType>
+
+    <RepositoryUrl>git://github.com/EsWork/Es.Logging</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryBranch>master</RepositoryBranch>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' != 'Debug' ">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <SignAssembly>True</SignAssembly>
+    <DelaySign>False</DelaySign>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)/sign.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)/icon.png" Pack="true" PackagePath=""/>
+  </ItemGroup>
+</Project>

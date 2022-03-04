@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	<Import Project="..\..\build\common.props" />
 	<PropertyGroup>
 		<Description>Support for Microsoft.Extensions.Logging</Description>
 		<AssemblyName>Es.Microsoft.Logging</AssemblyName>
