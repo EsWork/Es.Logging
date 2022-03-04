@@ -1,20 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="..\..\build\common.props" />
+	<Import Project="..\..\build\common.props" />
 
-  <PropertyGroup>
-    <AssemblyName>Es.Logging.Log4</AssemblyName>
-    <AssemblyTitle>Es.Logging.Log4</AssemblyTitle> 
-    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <PackageId>Es.Logging.Log4</PackageId>
-  </PropertyGroup>
+	<PropertyGroup>
+		<AssemblyName>Es.Logging.Log4</AssemblyName>
+		<AssemblyTitle>Es.Logging.Log4</AssemblyTitle>
+		<TargetFrameworks>net462;netstandard2.0;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<PackageId>Es.Logging.Log4</PackageId>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Es.Logging\Es.Logging.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Es.Logging\Es.Logging.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="log4net" Version="2.0.10" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="log4net" Version="2.0.14" />
+	</ItemGroup>
 </Project>

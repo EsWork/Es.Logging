@@ -20,10 +20,10 @@ namespace Es.Logging
         {
             if (!string.IsNullOrEmpty(fileName) && File.Exists(fileName))
             {
-                LogManager.Configuration = new XmlLoggingConfiguration(fileName, true);
+                LogManager.Configuration = new XmlLoggingConfiguration(fileName);
             }
 
-#if NETFULL
+#if NET462
             LogManager.AddHiddenAssembly(typeof(NLogLoggerFactoryExtensions).Assembly);
 #else
             LogManager.AddHiddenAssembly(typeof(NLogLoggerFactoryExtensions).GetTypeInfo().Assembly);

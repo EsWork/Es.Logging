@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Globalization;
-#if NETSTANDARD
+#if !NET462
 using System.Runtime.InteropServices;
 #endif
 namespace Es.Logging
@@ -19,7 +19,7 @@ namespace Es.Logging
 
         static ConsoleLogger()
         {
-#if !NETFULL
+#if !NET462
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 _console = new WindowsLogConsole();

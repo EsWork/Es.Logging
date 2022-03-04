@@ -1,37 +1,36 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.0;</TargetFrameworks>
-    <AssemblyName>Sample</AssemblyName>
-    <OutputType>Exe</OutputType>
-   <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;</TargetFrameworks>
+		<AssemblyName>Sample</AssemblyName>
+		<OutputType>Exe</OutputType>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Serilog.Sinks.Literate" Version="3.0.0" />
-    <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Serilog.Sinks.Literate" Version="3.0.0" />
+		<PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="NLog.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="NLog.xml">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Es.Logging.Serilog\Es.Logging.Serilog.csproj" />
-    <ProjectReference Include="..\Es.Logging\Es.Logging.csproj" />
-    <ProjectReference Include="..\Es.Logging.Console\Es.Logging.Console.csproj" />
-    <ProjectReference Include="..\Es.Logging.NLog\Es.Logging.NLog.csproj" />
-    <ProjectReference Include="..\Es.Logging.Log4\Es.Logging.Log4.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Es.Logging.Serilog\Es.Logging.Serilog.csproj" />
+		<ProjectReference Include="..\Es.Logging\Es.Logging.csproj" />
+		<ProjectReference Include="..\Es.Logging.Console\Es.Logging.Console.csproj" />
+		<ProjectReference Include="..\Es.Logging.NLog\Es.Logging.NLog.csproj" />
+		<ProjectReference Include="..\Es.Logging.Log4\Es.Logging.Log4.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Es.Microsoft.Log\Es.Microsoft.Log.csproj" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Es.Microsoft.Log\Es.Microsoft.Log.csproj" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
+	</ItemGroup>
 
 
 </Project>

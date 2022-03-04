@@ -2,11 +2,11 @@ language: csharp
 mono: none
 sudo: required
 dist: xenial
-dotnet: 3.0
+dotnet: 6.0
 addons:
   branches:
     - dev
     - master
 script:
   - dotnet restore src/LoggingTest
-  - dotnet test src/LoggingTest -f netcoreapp3.0
+  - dotnet test src/LoggingTest
