@@ -13,19 +13,22 @@ namespace Sample
     {
         private readonly Es.Logging.LoggerFactory _logFactory;
 
-        public MicrosoftLogDemo() {
+        public MicrosoftLogDemo()
+        {
             _logFactory = new Es.Logging.LoggerFactory();
 
             var logFactory = Microsoft.Extensions.Logging.LoggerFactory.Create(builder =>
             {
-                builder .AddConsole();
+                builder.AddConsole();
+                builder.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Debug);
             });
 
             _logFactory.AddMicrosoftLog(logFactory);
         }
 
         [Demo]
-        public void WriteLog() {
+        public void WriteLog()
+        {
             var log = _logFactory.CreateLogger("MicrosoftLogDemo");
 
             log.Trace("Trace....");
