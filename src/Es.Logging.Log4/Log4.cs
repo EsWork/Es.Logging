@@ -19,7 +19,7 @@ namespace Es.Logging
             return _log.Logger.IsEnabledFor(GetLogLevel(logLevel));
         }
 
-        public void Log(LogLevel logLevel, string message, Exception exception)
+        public void Log(LogLevel logLevel, string message, Exception? exception)
         {
             if (!IsEnabled(logLevel))
                 return;
@@ -32,16 +32,16 @@ namespace Es.Logging
 
         private log4net.Core.Level GetLogLevel(LogLevel logLevel)
         {
-            switch (logLevel)
+            return logLevel switch
             {
-                case LogLevel.Trace: return log4net.Core.Level.Trace;
-                case LogLevel.Debug: return log4net.Core.Level.Debug;
-                case LogLevel.Info: return log4net.Core.Level.Info;
-                case LogLevel.Warn: return log4net.Core.Level.Warn;
-                case LogLevel.Error: return log4net.Core.Level.Error;
-                case LogLevel.Fatal: return log4net.Core.Level.Fatal;
-                default: return log4net.Core.Level.Off;
-            }
+                LogLevel.Trace => log4net.Core.Level.Trace,
+                LogLevel.Debug => log4net.Core.Level.Debug,
+                LogLevel.Info => log4net.Core.Level.Info,
+                LogLevel.Warn => log4net.Core.Level.Warn,
+                LogLevel.Error => log4net.Core.Level.Error,
+                LogLevel.Fatal => log4net.Core.Level.Fatal,
+                _ => log4net.Core.Level.Off,
+            };
         }
     }
 }

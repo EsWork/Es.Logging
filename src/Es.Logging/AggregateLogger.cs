@@ -18,7 +18,7 @@ namespace Es.Logging
 
         public bool IsEnabled(LogLevel logLevel)
         {
-            List<Exception> exceptions = null;
+            List<Exception>? exceptions = null;
             foreach (var logger in Loggers)
             {
                 try
@@ -30,10 +30,7 @@ namespace Es.Logging
                 }
                 catch (Exception ex)
                 {
-                    if (exceptions == null)
-                    {
-                        exceptions = new List<Exception>();
-                    }
+                    exceptions ??= new List<Exception>();
                     exceptions.Add(ex);
                 }
             }
@@ -46,9 +43,9 @@ namespace Es.Logging
             return false;
         }
 
-        public void Log(LogLevel logLevel, string message, Exception exception)
+        public void Log(LogLevel logLevel, string message, Exception? exception)
         {
-            List<Exception> exceptions = null;
+            List<Exception>? exceptions = null;
             foreach (var logger in Loggers)
             {
                 try
@@ -57,10 +54,7 @@ namespace Es.Logging
                 }
                 catch (Exception ex)
                 {
-                    if (exceptions == null)
-                    {
-                        exceptions = new List<Exception>();
-                    }
+                    exceptions ??= new List<Exception>();
                     exceptions.Add(ex);
                 }
             }

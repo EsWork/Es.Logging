@@ -7,7 +7,7 @@ namespace Es.Logging
     /// </summary>
     public class NLogLoggerProvider : ILoggerProvider
     {
-        private readonly LogFactory _factory;
+        private readonly LogFactory? _factory;
         private bool _disposed = false;
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace Es.Logging
         /// <returns>New Logger</returns>
         public ILogger CreateLogger(string name)
         {
-            if (_factory == null)
+            if (_factory is null)
             {
                 //usage XmlLoggingConfiguration
                 //e.g LogManager.Configuration = new XmlLoggingConfiguration(fileName, true);
@@ -47,7 +47,7 @@ namespace Es.Logging
         /// </summary>
         public void Dispose()
         {
-            if (_factory != null && !_disposed)
+            if (_factory is not null && !_disposed)
             {
                 _factory.Flush();
                 _factory.Dispose();

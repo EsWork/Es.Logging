@@ -13,7 +13,7 @@
         /// <returns><see cref="ILogger"/></returns>
         public static ILogger CreateLogger<T>(this ILoggerFactory factory)
         {
-            return factory.CreateLogger(typeof(T).FullName);
+            return factory.CreateLogger(typeof(T).FullName!);
         }
     }
 }

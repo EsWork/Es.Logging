@@ -7,9 +7,9 @@ namespace Es.Logging
     /// </summary>
     public class LoggerFactory : ILoggerFactory
     {
-        private readonly object lockObject = new object();
+        private readonly object lockObject = new();
 
-        internal readonly Dictionary<string, AggregateLogger> Loggers = new Dictionary<string, AggregateLogger>();
+        internal readonly Dictionary<string, AggregateLogger> Loggers = new();
 
         /// <summary>
         /// Default Factory
@@ -19,7 +19,7 @@ namespace Es.Logging
         /// <summary>
         /// 创建日志记录实例的提供者集合
         /// </summary>
-        public readonly List<ILoggerProvider> Providers = new List<ILoggerProvider>
+        public readonly List<ILoggerProvider> Providers = new()
         {
             EmptyLoggerProvider.Instance
         };
@@ -49,7 +49,7 @@ namespace Es.Logging
         /// <returns><see cref="ILogger"/></returns>
         public ILogger CreateLogger(string name)
         {
-            if (!Loggers.TryGetValue(name, out AggregateLogger logger))
+            if (!Loggers.TryGetValue(name, out var logger))
             {
                 lock (lockObject)
                 {
@@ -70,9 +70,10 @@ namespace Es.Logging
         /// </summary>
         /// <returns><see cref="ILogger"/></returns>
         [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.NoInlining)]
-        public static ILogger GetCurrentClassLogger() {
-            System.Diagnostics.StackFrame frame = new System.Diagnostics.StackFrame(1, false);
-            return Factory.CreateLogger(frame.GetMethod().DeclaringType.FullName);
+        public static ILogger GetCurrentClassLogger()
+        {
+            System.Diagnostics.StackFrame frame = new(1, false);
+            return Factory.CreateLogger(frame.GetMethod()?.DeclaringType?.FullName ?? "StackFrame");
         }
 
 

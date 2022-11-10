@@ -8,7 +8,7 @@
     /// </summary>
     internal class EmptyLoggerProvider : ILoggerProvider
     {
-        internal static EmptyLoggerProvider Instance = new EmptyLoggerProvider();
+        internal static EmptyLoggerProvider Instance = new();
 
         /// <summary>
         /// 创建一个新的<see cref="EmptyLogger"/>实例

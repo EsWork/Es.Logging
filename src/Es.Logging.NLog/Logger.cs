@@ -5,7 +5,7 @@ namespace Es.Logging
 {
     internal class Logger : ILogger
     {
-        private NLog.Logger _logger;
+        private readonly NLog.Logger _logger;
 
         public Logger(NLog.Logger logger)
         {
@@ -17,7 +17,7 @@ namespace Es.Logging
             return _logger.IsEnabled(GetLogLevel(logLevel));
         }
 
-        public void Log(LogLevel logLevel, string message, Exception exception)
+        public void Log(LogLevel logLevel, string message, Exception? exception)
         {
             if (!IsEnabled(logLevel))
                 return;
@@ -37,16 +37,16 @@ namespace Es.Logging
 
         private NLog.LogLevel GetLogLevel(LogLevel logLevel)
         {
-            switch (logLevel)
+            return logLevel switch
             {
-                case LogLevel.Trace: return NLog.LogLevel.Trace;
-                case LogLevel.Debug: return NLog.LogLevel.Debug;
-                case LogLevel.Info: return NLog.LogLevel.Info;
-                case LogLevel.Warn: return NLog.LogLevel.Warn;
-                case LogLevel.Error: return NLog.LogLevel.Error;
-                case LogLevel.Fatal: return NLog.LogLevel.Fatal;
-                default: return NLog.LogLevel.Off;
-            }
+                LogLevel.Trace => NLog.LogLevel.Trace,
+                LogLevel.Debug => NLog.LogLevel.Debug,
+                LogLevel.Info => NLog.LogLevel.Info,
+                LogLevel.Warn => NLog.LogLevel.Warn,
+                LogLevel.Error => NLog.LogLevel.Error,
+                LogLevel.Fatal => NLog.LogLevel.Fatal,
+                _ => NLog.LogLevel.Off,
+            };
         }
     }
 }

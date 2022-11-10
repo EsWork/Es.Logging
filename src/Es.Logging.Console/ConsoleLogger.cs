@@ -51,7 +51,7 @@ namespace Es.Logging
             return logLevel >= _minLevel;
         }
 
-        public void Log(LogLevel logLevel, string message, Exception exception)
+        public void Log(LogLevel logLevel, string message, Exception? exception)
         {
             if (!IsEnabled(logLevel))
             {
@@ -74,7 +74,7 @@ namespace Es.Logging
 
             _outPutQueue.EnqueueMessage(new LogMessage
             {
-                Message = $"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")} {levelString} {name} {message}",
+                Message = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff} {levelString} {name} {message}",
                 Background = color.Background,
                 Foreground = color.Foreground
             });
@@ -83,59 +83,33 @@ namespace Es.Logging
 
         private static string GetLevelString(LogLevel logLevel)
         {
-            switch (logLevel)
+            return logLevel switch
             {
-                case LogLevel.Trace:
-                    return "trace";
-
-                case LogLevel.Debug:
-                    return "debug";
-
-                case LogLevel.Info:
-                    return "info";
-
-                case LogLevel.Warn:
-                    return "warn";
-
-                case LogLevel.Error:
-                    return "error";
-
-                case LogLevel.Fatal:
-                    return "fatal";
-
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(logLevel));
-            }
+                LogLevel.Trace => "trace",
+                LogLevel.Debug => "debug",
+                LogLevel.Info => "info",
+                LogLevel.Warn => "warn",
+                LogLevel.Error => "error",
+                LogLevel.Fatal => "fatal",
+                _ => throw new ArgumentOutOfRangeException(nameof(logLevel)),
+            };
         }
 
         private Color GetColor(LogLevel logLevel)
         {
-            switch (logLevel)
+            return logLevel switch
             {
-                case LogLevel.Fatal:
-                    return new Color(ConsoleColor.Magenta, ConsoleColor.Black);
-
-                case LogLevel.Error:
-                    return new Color(ConsoleColor.Red, ConsoleColor.Black);
-
-                case LogLevel.Warn:
-                    return new Color(ConsoleColor.Yellow, ConsoleColor.Black);
-
-                case LogLevel.Info:
-                    return new Color(ConsoleColor.White, ConsoleColor.Black);
-
-                case LogLevel.Trace:
-                    return new Color(ConsoleColor.Gray, ConsoleColor.Black);
-
-                case LogLevel.Debug:
-                    return new Color(ConsoleColor.Gray, ConsoleColor.Black);
-
-                default:
-                    return new Color(ConsoleColor.White, ConsoleColor.Black);
-            }
+                LogLevel.Fatal => new Color(ConsoleColor.Magenta, ConsoleColor.Black),
+                LogLevel.Error => new Color(ConsoleColor.Red, ConsoleColor.Black),
+                LogLevel.Warn => new Color(ConsoleColor.Yellow, ConsoleColor.Black),
+                LogLevel.Info => new Color(ConsoleColor.White, ConsoleColor.Black),
+                LogLevel.Trace => new Color(ConsoleColor.Gray, ConsoleColor.Black),
+                LogLevel.Debug => new Color(ConsoleColor.Gray, ConsoleColor.Black),
+                _ => new Color(ConsoleColor.White, ConsoleColor.Black),
+            };
         }
 
-        private struct Color
+        private readonly struct Color
         {
             public Color(ConsoleColor? foreground, ConsoleColor? background)
             {
@@ -148,16 +122,11 @@ namespace Es.Logging
             public ConsoleColor? Background { get; }
         }
 
-        private static string Formatter(string message, Exception error)
+        private static string Formatter(string message, Exception? error)
         {
-            if (message == null && error == null)
-            {
-                throw new InvalidOperationException("Not found the message or exception information to create a log message.");
-            }
-
             if (message == null)
             {
-                return error.ToString();
+                throw new InvalidOperationException("Not found the message information to create a log message.");
             }
 
             if (error == null)

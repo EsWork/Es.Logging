@@ -1,6 +1,6 @@
-﻿using System;
-using Serilog;
+﻿using Serilog;
 using Serilog.Core;
+using System;
 
 namespace Es.Logging
 {
@@ -9,7 +9,7 @@ namespace Es.Logging
     /// </summary>
     public class LoggerProvider : ILoggerProvider
     {
-        private Serilog.ILogger _logger;
+        private readonly Serilog.ILogger _logger;
         private readonly Action _dispose;
 
         /// <summary>

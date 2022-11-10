@@ -6,7 +6,7 @@ namespace Es.Logging
     public class Logger : ILogger
     {
         private readonly MS.ILogger _logger;
-        private static readonly Func<object, Exception, string> _messageFormatter = MessageFormatter;
+        private static readonly Func<object, Exception?, string> _messageFormatter = MessageFormatter;
 
         public Logger(MS.ILogger logger)
         {
@@ -15,7 +15,7 @@ namespace Es.Logging
 
         public bool IsEnabled(LogLevel logLevel)
         {
-            return _logger.IsEnabled(GetLogLevel(logLevel));
+            return _logger.IsEnabled(Logger.GetLogLevel(logLevel));
         }
 
         private bool IsEnabled(MS.LogLevel logLevel)
@@ -23,32 +23,32 @@ namespace Es.Logging
             return _logger.IsEnabled(logLevel);
         }
 
-        public void Log(LogLevel logLevel, string message, Exception exception)
+        public void Log(LogLevel logLevel, string message, Exception? exception)
         {
-            var level = GetLogLevel(logLevel);
+            var level = Logger.GetLogLevel(logLevel);
             if (IsEnabled(level))
             {
-                _logger.Log(GetLogLevel(logLevel), 0, message, exception, _messageFormatter);
+                _logger.Log(Logger.GetLogLevel(logLevel), 0, message, exception, _messageFormatter);
             }
         }
 
-        private MS.LogLevel GetLogLevel(LogLevel logLevel)
+        private static MS.LogLevel GetLogLevel(LogLevel logLevel)
         {
-            switch (logLevel)
+            return logLevel switch
             {
-                case LogLevel.Trace: return MS.LogLevel.Trace;
-                case LogLevel.Debug: return MS.LogLevel.Debug;
-                case LogLevel.Info: return MS.LogLevel.Information;
-                case LogLevel.Warn: return MS.LogLevel.Warning;
-                case LogLevel.Error: return MS.LogLevel.Error;
-                case LogLevel.Fatal: return MS.LogLevel.Critical;
-                default: return MS.LogLevel.None;
-            }
+                LogLevel.Trace => MS.LogLevel.Trace,
+                LogLevel.Debug => MS.LogLevel.Debug,
+                LogLevel.Info => MS.LogLevel.Information,
+                LogLevel.Warn => MS.LogLevel.Warning,
+                LogLevel.Error => MS.LogLevel.Error,
+                LogLevel.Fatal => MS.LogLevel.Critical,
+                _ => MS.LogLevel.None,
+            };
         }
 
-        private static string MessageFormatter(object state, Exception error)
+        private static string MessageFormatter(object state, Exception? error)
         {
-            return state.ToString();
+            return state?.ToString() ?? string.Empty;
         }
     }
 }

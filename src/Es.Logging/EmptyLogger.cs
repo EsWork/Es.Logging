@@ -25,7 +25,7 @@ namespace Es.Logging
         /// <param name="logLevel"></param>
         /// <param name="message"></param>
         /// <param name="exception"></param>
-        public void Log(LogLevel logLevel, string message, Exception exception)
+        public void Log(LogLevel logLevel, string message, Exception? exception)
         {
         }
     }

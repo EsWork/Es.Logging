@@ -4,9 +4,10 @@
 	<PropertyGroup>
 		<AssemblyName>Es.Logging.Log4</AssemblyName>
 		<AssemblyTitle>Es.Logging.Log4</AssemblyTitle>
-		<TargetFrameworks>net462;netstandard2.0;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
+		<TargetFrameworks>net462;netstandard2.0;netcoreapp3.1;net5.0;net6.0;net7.0</TargetFrameworks>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<PackageId>Es.Logging.Log4</PackageId>
+		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -14,6 +15,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="log4net" Version="2.0.14" />
+		<PackageReference Include="log4net" Version="2.0.15" />
 	</ItemGroup>
 </Project>

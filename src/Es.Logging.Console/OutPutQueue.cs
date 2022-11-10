@@ -8,11 +8,11 @@ namespace Es.Logging
     {
         private const int _maxQueuedMessages = 1024;
 
-        private readonly BlockingCollection<LogMessage> _messageQueue = new BlockingCollection<LogMessage>(_maxQueuedMessages);
+        private readonly BlockingCollection<LogMessage> _messageQueue = new(_maxQueuedMessages);
 
         private readonly Task _outputTask;
 
-        public IConsole Console;
+        public IConsole? Console;
 
         public OutPutQueue()
         {
@@ -39,8 +39,8 @@ namespace Es.Logging
 
         internal virtual void WriteMessage(LogMessage message)
         {
-            Console.WriteLine(message.Message, message.Background, message.Foreground);
-            Console.Flush();
+            Console?.WriteLine(message.Message, message.Background, message.Foreground);
+            Console?.Flush();
         }
 
         private void ProcessQueue()
@@ -51,9 +51,9 @@ namespace Es.Logging
             }
         }
 
-        private static void ProcessQueue(object state)
+        private static void ProcessQueue(object? state)
         {
-            var consoleLogger = (OutPutQueue)state;
+            var consoleLogger = (OutPutQueue)state!;
             consoleLogger.ProcessQueue();
         }
 
@@ -75,6 +75,6 @@ namespace Es.Logging
     {
         public ConsoleColor? Background;
         public ConsoleColor? Foreground;
-        public string Message;
+        public string Message = default!;
     }
 }

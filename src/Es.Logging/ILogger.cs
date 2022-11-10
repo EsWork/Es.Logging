@@ -13,7 +13,7 @@ namespace Es.Logging
         /// <param name="logLevel"><see cref="LogLevel"/></param>
         /// <param name="message">日志信息</param>
         /// <param name="exception">异常信息</param>
-        void Log(LogLevel logLevel, string message, Exception exception);
+        void Log(LogLevel logLevel, string message, Exception? exception);
 
         /// <summary>
         /// 检查给定日志级别是否启用。

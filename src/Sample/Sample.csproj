@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0;</TargetFrameworks>
+		<TargetFrameworks>net7.0;</TargetFrameworks>
 		<AssemblyName>Sample</AssemblyName>
 		<OutputType>Exe</OutputType>
 	</PropertyGroup>
@@ -27,9 +27,9 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Es.Microsoft.Log\Es.Microsoft.Log.csproj" />
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
 
