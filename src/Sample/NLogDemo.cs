@@ -24,9 +24,7 @@ namespace Sample
             LoggingRule rule1 = new LoggingRule("*", NLog.LogLevel.Trace, consoleTarget);
             config.LoggingRules.Add(rule1);
 
-            LogFactory factory = new LogFactory(config);
-
-            _logFactory.AddNLog(factory);
+            _logFactory.AddNLog(config.LogFactory);
         }
 
         [Demo]

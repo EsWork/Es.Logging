@@ -3,7 +3,7 @@
 		<Description>Support for Microsoft.Extensions.Logging</Description>
 		<AssemblyName>Es.Microsoft.Logging</AssemblyName>
 		<AssemblyTitle>Es.Microsoft.Logging</AssemblyTitle>
-		<TargetFrameworks>netstandard2.0;netcoreapp3.1;net5.0;net6.0;net7.0</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<PackageId>Es.Microsoft.Logging</PackageId>
 		<Nullable>enable</Nullable>

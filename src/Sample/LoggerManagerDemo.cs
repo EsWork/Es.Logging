@@ -23,10 +23,9 @@ namespace Sample
             var rule1 = new NLog.Config.LoggingRule("*", NLog.LogLevel.Trace, consoleTarget);
             config.LoggingRules.Add(rule1);
 
-            var factory = new NLog.LogFactory(config);
 
             //append NLog
-            LoggerFactory.Factory.AddNLog(factory);
+            LoggerFactory.Factory.AddNLog(config.LogFactory);
 
             //print 2 line
             _logger.Info("------- console & nlog -------");
