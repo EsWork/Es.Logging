@@ -4,7 +4,7 @@
 	<PropertyGroup>
 		<AssemblyName>Es.Logging.NLog</AssemblyName>
 		<AssemblyTitle>Es.Logging.NLog</AssemblyTitle>
-		<TargetFrameworks>net462;netstandard2.0;net6.0;net7.0</TargetFrameworks>
+		<TargetFrameworks>net462;netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>Es.Logging.NLog</PackageId>
@@ -16,7 +16,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="NLog" Version="5.2.0" />
+		<PackageReference Include="NLog" Version="5.2.8" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">

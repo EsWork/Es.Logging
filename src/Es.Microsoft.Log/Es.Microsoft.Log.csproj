@@ -3,7 +3,7 @@
 		<Description>Support for Microsoft.Extensions.Logging</Description>
 		<AssemblyName>Es.Microsoft.Logging</AssemblyName>
 		<AssemblyTitle>Es.Microsoft.Logging</AssemblyTitle>
-		<TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<PackageId>Es.Microsoft.Logging</PackageId>
 		<Nullable>enable</Nullable>
@@ -13,20 +13,8 @@
 		<ProjectReference Include="..\Es.Logging\Es.Logging.csproj" />
 	</ItemGroup>
 
-	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.0" />
-	</ItemGroup>
-	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1'">
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.0" />
-	</ItemGroup>
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net5.0'">
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
-	</ItemGroup>
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net6.0'">
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
-	</ItemGroup>
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net7.0'">
-		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
 	</ItemGroup>
 
 </Project>
